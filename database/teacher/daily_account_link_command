@@ -1,0 +1,11 @@
+SELECT `daily_account`.`id`,
+		`item` as "消費品項",
+        `type` as "支出/收入",
+        `payment` as "金額",
+        `payment_method`.`payment_method` as "支付方式",
+        `account` as "帳戶",
+        `store` as "店家",
+        `category`.`category` as "消費類型"
+FROM `daily_account`, `payment_method`, `category`
+WHERE `daily_account`.`payment_method` = `payment_method`.`id` &&
+	  `daily_account`.`category` = `category`.`id`
