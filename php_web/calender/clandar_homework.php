@@ -64,7 +64,7 @@ for($i = 0; $i < 8; $i++)
     if(date('m', $days) < $month || date('m', $days) > $month)
       $class_day[] = 'text_gray';
 
-    //第一列:年月/上下年/月按鈕
+    //第一列:年月下拉選單
     if($i == 0)
     {
     ?>
