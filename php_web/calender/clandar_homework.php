@@ -76,7 +76,7 @@ for($i = 0; $i < 8; $i++)
       $class_day[] = "text_gray";
 
     //今天
-    if(date("m-j") == date("m-j", $days))
+    if(date("Y-m-j") == date("Y-m-j", $days))
       $class_day[] = "today_color";
 
     //第一列:年月下拉選單
