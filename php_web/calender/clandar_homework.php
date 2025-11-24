@@ -1,3 +1,31 @@
+<?php
+session_start();
+//輸出緩衝
+ob_start();
+
+if(!isset($_SESSION['notes']))
+{
+  $_SESSION['notes'] = [];
+}
+
+//註解變數，在session中新增巢狀陣列[年=>[月=>[日=>註解]]]
+$nyear = $_POST['year'] ?? null;
+$nmonth = $_POST['month'] ?? null;
+$nday = $_POST['day'] ?? null;
+$note = $_POST['note'] ?? null;
+
+if($_SERVER['REQUEST_METHOD'] === 'POST')
+    {
+      if(!empty($nyear) && !empty($nmonth) && !empty($nday) &&!empty($note))
+      {
+        $_SESSION['notes'][$nyear][$nmonth][$nday] = $note;
+        echo"註解已新增至{$nyear}年{$nmonth}月{$nday}日，message:{$note}";
+        header("Location: clandar_homework.php?dateY={$nyear}&dateM={$nmonth}");
+        exit;
+      }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,22 +40,10 @@
 <h1>萬年曆</h1>  
 
 <?php
-session_start();
-if(!isset($_SESSION['notes']))
-{
-  $_SESSION['notes'] = [];
-}
-?>
-
-<?php
 /*請在這裹撰寫你的萬年曆程式碼*/
 $year = isset($_GET["dateY"]) ? $_GET["dateY"] : date("Y");
 $month = isset($_GET["dateM"]) ? $_GET["dateM"] : date("n");
-?>
 
-
-
-<?php
 $firstweek = date("w", strtotime(date("{$year}-{$month}-1")));
 //當年月一日戳記
 $firstday = strtotime(date("{$year}-{$month}-1"));
@@ -37,14 +53,7 @@ $thismonth_days = date("t", strtotime(date("{$year}-{$month}")));
 $days = strtotime("- $firstweek days", $firstday);
 $weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
 
-//註解變數，在session中新增巢狀陣列[年=>[月=>[日=>註解]]]
-$nyear = $_POST['year'] ?? null;
-$nmonth = $_POST['month'] ?? null;
-$nday = $_POST['day'] ?? null;
-$note = $_POST['note'] ?? null;
-?>
 
-<?php
 echo "<div class='container'>";
 for($i = 0; $i < 8; $i++)
 {
@@ -118,7 +127,7 @@ echo "</div>";
 
 <div class="tools">
   <!-- 註解表單 -->
-  <form action="clandar_homework copy.php" method="post">
+  <form action="clandar_homework.php" method="post">
     <label>新增註解</label><br>
     年:<input type="text" name="year"><br>
     月:<input type="text" name="month"><br>
@@ -127,20 +136,11 @@ echo "</div>";
     <input type="submit" value="新增">
   </form>
 
-  <!-- 註解輸入後判斷 -->
+  <!-- 註解輸入後判斷輸入不完整 -->
   <?php 
-    if($_SERVER['REQUEST_METHOD'] === 'POST')
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($nyear) && empty($nmonth) && empty($nday) && empty($note))
     {
-      if(!empty($nyear) && !empty($nmonth) && !empty($nday) &&!empty($note))
-      {
-        $_SESSION['notes'][$nyear][$nmonth][$nday] = $note;
-        echo"註解已新增至{$nyear}年{$nmonth}月{$nday}日，message:{$note}";
-        header("Location: clandar_homework.php?dateY={$nyear}&dateM={$nmonth}");
-      }
-      else
-      {
-        echo "資料輸入不完整，請重新輸入";
-      }
+      echo "資料輸入不完整，請重新輸入";
     }
   ?>
 </div>
