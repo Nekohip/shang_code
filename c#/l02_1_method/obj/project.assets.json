@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\shang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\shang\\git\\shang_code\\c#\\l02_1_method\\l02_1_method.csproj",
+      "projectUniqueName": "D:\\shang\\shang_code\\c#\\l02_1_method\\l02_1_method.csproj",
       "projectName": "l02_1_method",
-      "projectPath": "F:\\shang\\git\\shang_code\\c#\\l02_1_method\\l02_1_method.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "F:\\shang\\git\\shang_code\\c#\\l02_1_method\\obj\\",
+      "projectPath": "D:\\shang\\shang_code\\c#\\l02_1_method\\l02_1_method.csproj",
+      "packagesPath": "C:\\Users\\shang\\.nuget\\packages\\",
+      "outputPath": "D:\\shang\\shang_code\\c#\\l02_1_method\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\shang\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

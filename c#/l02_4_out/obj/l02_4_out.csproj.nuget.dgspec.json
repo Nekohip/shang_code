@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\shang\\git\\shang_code\\c#\\l02_4_out\\l02_4_out.csproj": {}
+    "D:\\shang\\shang_code\\c#\\l02_4_out\\l02_4_out.csproj": {}
   },
   "projects": {
-    "F:\\shang\\git\\shang_code\\c#\\l02_4_out\\l02_4_out.csproj": {
+    "D:\\shang\\shang_code\\c#\\l02_4_out\\l02_4_out.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\shang\\git\\shang_code\\c#\\l02_4_out\\l02_4_out.csproj",
+        "projectUniqueName": "D:\\shang\\shang_code\\c#\\l02_4_out\\l02_4_out.csproj",
         "projectName": "l02_4_out",
-        "projectPath": "F:\\shang\\git\\shang_code\\c#\\l02_4_out\\l02_4_out.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "F:\\shang\\git\\shang_code\\c#\\l02_4_out\\obj\\",
+        "projectPath": "D:\\shang\\shang_code\\c#\\l02_4_out\\l02_4_out.csproj",
+        "packagesPath": "C:\\Users\\shang\\.nuget\\packages\\",
+        "outputPath": "D:\\shang\\shang_code\\c#\\l02_4_out\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\shang\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
