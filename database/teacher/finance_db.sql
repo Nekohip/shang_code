@@ -3,16 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-11-18 08:51:09
+-- 產生時間： 2025-11-21 02:43:14
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-CREATE DATABASE IF NOT EXISTS finance_db;
-USE finance_db;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -23,6 +20,31 @@ USE finance_db;
 --
 -- 資料庫： `finance_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, '3C', '2025-11-21 00:51:44', '2025-11-21 00:51:44'),
+(2, '交通', '2025-11-21 00:51:44', '2025-11-21 00:51:44'),
+(3, '日用品', '2025-11-21 00:51:44', '2025-11-21 00:51:44'),
+(4, '食品', '2025-11-21 00:51:44', '2025-11-21 00:51:44'),
+(5, '飲料', '2025-11-21 00:51:44', '2025-11-21 00:51:44'),
+(6, '餐飲', '2025-11-21 00:51:44', '2025-11-21 00:51:44');
 
 -- --------------------------------------------------------
 
@@ -38,8 +60,8 @@ CREATE TABLE `daily_account` (
   `date` date NOT NULL,
   `item` text DEFAULT NULL,
   `payment` int(11) NOT NULL,
-  `payment_method` varchar(50) DEFAULT NULL,
-  `category` varchar(50) DEFAULT NULL,
+  `payment_method` int(11) NOT NULL,
+  `category` int(11) NOT NULL,
   `type` varchar(20) NOT NULL,
   `desc` text DEFAULT NULL,
   `account` text DEFAULT NULL
@@ -50,30 +72,58 @@ CREATE TABLE `daily_account` (
 --
 
 INSERT INTO `daily_account` (`id`, `time`, `currency`, `store`, `date`, `item`, `payment`, `payment_method`, `category`, `type`, `desc`, `account`) VALUES
-(1, '09:12:00', 'TWD', '全家便利商店', '2025-01-05', '早餐三明治', 65, '現金', '餐飲', '支出', '上班前買早餐', '錢包'),
-(2, '12:28:00', 'TWD', '麥當勞', '2025-01-05', '超值午餐', 129, '信用卡', '餐飲', '支出', '', '台新信用卡'),
-(3, '15:40:00', 'TWD', '星巴克', '2025-01-05', '拿鐵', 135, '電子支付', '飲料', '支出', '用 Starbucks App', '悠遊付'),
-(4, '18:55:00', 'TWD', '家樂福', '2025-01-05', '衛生紙', 99, '信用卡', '日用品', '支出', '', '國泰世華卡'),
-(5, '20:10:00', 'TWD', '7-11', '2025-01-05', '飲料', 35, '現金', '飲料', '支出', '', '錢包'),
-(6, '09:05:00', 'TWD', '早餐店', '2025-01-06', '蛋餅', 40, '現金', '餐飲', '支出', '', '錢包'),
-(7, '12:20:00', 'TWD', '便當店', '2025-01-06', '雞腿便當', 110, '電子支付', '餐飲', '支出', '', 'Line Pay'),
-(8, '14:33:00', 'TWD', '全聯', '2025-01-06', '咖啡豆', 299, '信用卡', '食品', '支出', '', '玉山信用卡'),
-(9, '17:50:00', 'TWD', '捷運悠遊卡', '2025-01-06', '儲值', 200, '現金', '交通', '支出', '', '錢包'),
-(10, '21:15:00', 'TWD', 'PChome', '2025-01-06', '鍵盤', 899, '信用卡', '3C', '支出', '特價購入', '台新信用卡'),
-(11, '08:55:00', 'TWD', '早餐店', '2025-01-07', '豆漿飯糰', 55, '現金', '餐飲', '支出', '', '錢包'),
-(12, '12:10:00', 'TWD', '公司餐廳', '2025-01-07', '自助餐', 85, '電子支付', '餐飲', '支出', '', '一卡通'),
-(13, '16:45:00', 'TWD', '星巴克', '2025-01-07', '美式咖啡', 110, '電子支付', '飲料', '支出', '', '悠遊付'),
-(14, '19:30:00', 'TWD', '家樂福', '2025-01-07', '洗衣精', 120, '信用卡', '日用品', '支出', '', '國泰世華卡'),
-(15, '20:50:00', 'TWD', '7-11', '2025-01-07', '果汁', 28, '現金', '飲料', '支出', '', '錢包'),
-(16, '09:20:00', 'TWD', '全家', '2025-01-08', '地瓜', 35, '電子支付', '餐飲', '支出', '', 'Line Pay'),
-(17, '12:18:00', 'TWD', '牛肉麵店', '2025-01-08', '牛肉麵', 130, '現金', '餐飲', '支出', '', '錢包'),
-(18, '15:55:00', 'TWD', '手搖飲料店', '2025-01-08', '珍珠奶茶', 60, '電子支付', '飲料', '支出', '', '悠遊付'),
-(19, '17:10:00', 'TWD', 'Uber Eats', '2025-01-08', '雞塊套餐', 159, '信用卡', '餐飲', '支出', '外送', '台新信用卡'),
-(20, '21:00:00', 'TWD', 'Momo', '2025-01-08', '滑鼠', 499, '信用卡', '3C', '支出', '', '永豐信用卡');
+(1, '09:12:00', 'TWD', '全家便利商店', '2025-01-05', '早餐三明治', 65, 2, 6, '支出', '上班前買早餐', '錢包'),
+(2, '12:28:00', 'TWD', '麥當勞', '2025-01-05', '超值午餐', 129, 1, 6, '支出', '', '台新信用卡'),
+(3, '15:40:00', 'TWD', '星巴克', '2025-01-05', '拿鐵', 135, 3, 5, '支出', '用 Starbucks App', '悠遊付'),
+(4, '18:55:00', 'TWD', '家樂福', '2025-01-05', '衛生紙', 99, 1, 3, '支出', '', '國泰世華卡'),
+(5, '20:10:00', 'TWD', '7-11', '2025-01-05', '飲料', 35, 2, 5, '支出', '', '錢包'),
+(6, '09:05:00', 'TWD', '早餐店', '2025-01-06', '蛋餅', 40, 2, 6, '支出', '', '錢包'),
+(7, '12:20:00', 'TWD', '便當店', '2025-01-06', '雞腿便當', 110, 3, 6, '支出', '', 'Line Pay'),
+(8, '14:33:00', 'TWD', '全聯', '2025-01-06', '咖啡豆', 299, 1, 4, '支出', '', '玉山信用卡'),
+(9, '17:50:00', 'TWD', '捷運悠遊卡', '2025-01-06', '儲值', 200, 2, 2, '支出', '', '錢包'),
+(10, '21:15:00', 'TWD', 'PChome', '2025-01-06', '鍵盤', 899, 1, 1, '支出', '特價購入', '台新信用卡'),
+(11, '08:55:00', 'TWD', '早餐店', '2025-01-07', '豆漿飯糰', 55, 2, 6, '支出', '', '錢包'),
+(12, '12:10:00', 'TWD', '公司餐廳', '2025-01-07', '自助餐', 85, 3, 6, '支出', '', '一卡通'),
+(13, '16:45:00', 'TWD', '星巴克', '2025-01-07', '美式咖啡', 110, 3, 5, '支出', '', '悠遊付'),
+(14, '19:30:00', 'TWD', '家樂福', '2025-01-07', '洗衣精', 120, 1, 3, '支出', '', '國泰世華卡'),
+(15, '20:50:00', 'TWD', '7-11', '2025-01-07', '果汁', 28, 2, 5, '支出', '', '錢包'),
+(16, '09:20:00', 'TWD', '全家', '2025-01-08', '地瓜', 35, 3, 6, '支出', '', 'Line Pay'),
+(17, '12:18:00', 'TWD', '牛肉麵店', '2025-01-08', '牛肉麵', 130, 2, 6, '支出', '', '錢包'),
+(18, '15:55:00', 'TWD', '手搖飲料店', '2025-01-08', '珍珠奶茶', 60, 3, 5, '支出', '', '悠遊付'),
+(19, '17:10:00', 'TWD', 'Uber Eats', '2025-01-08', '雞塊套餐', 159, 1, 6, '支出', '外送', '台新信用卡'),
+(20, '21:00:00', 'TWD', 'Momo', '2025-01-08', '滑鼠', 499, 1, 1, '支出', '', '永豐信用卡');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `payment_method`
+--
+
+CREATE TABLE `payment_method` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(24) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `payment_method`
+--
+
+INSERT INTO `payment_method` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, '信用卡', '2025-11-21 01:15:06', '2025-11-21 01:15:06'),
+(2, '現金', '2025-11-21 01:15:06', '2025-11-21 01:15:06'),
+(3, '電子支付', '2025-11-21 01:15:06', '2025-11-21 01:15:06');
 
 --
 -- 已傾印資料表的索引
 --
+
+--
+-- 資料表索引 `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- 資料表索引 `daily_account`
@@ -82,14 +132,32 @@ ALTER TABLE `daily_account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 資料表索引 `payment_method`
+--
+ALTER TABLE `payment_method`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `daily_account`
 --
 ALTER TABLE `daily_account`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `payment_method`
+--
+ALTER TABLE `payment_method`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

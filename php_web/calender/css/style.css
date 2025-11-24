@@ -86,7 +86,11 @@ body{
     margin-top: -1px;
 }
 .color{
-    background-color: lightyellow;
+    background-color: lightcoral;
+}
+
+.today_color{
+    background-color: lightseagreen;
 }
 
 .text_gray{

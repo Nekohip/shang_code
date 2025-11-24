@@ -52,17 +52,23 @@ for($i = 0; $i < 8; $i++)
   for($j = 0; $j < 7; $j++)
   {
     //判斷各格子要用哪種背景/文字顏色
-    $class_day = ['boxsize'];
-    $class_week = ['boxsize_week'];
+    $class_day = ["boxsize"];
+    $class_week = ["boxsize_week"];
 
+    //六日
     if($j == 0 || $j == 6)
     {
-      $class_day[] = 'color';
-      $class_week[] = 'color';
+      $class_day[] = "color";
+      $class_week[] = "color";
     }
 
-    if(date('m', $days) < $month || date('m', $days) > $month)
-      $class_day[] = 'text_gray';
+    //非本月
+    if(date("m", $days) < $month || date("m", $days) > $month)
+      $class_day[] = "text_gray";
+
+    //今天
+    if(date("m-j") == date("m-j", $days))
+      $class_day[] = "today_color";
 
     //第一列:年月下拉選單
     if($i == 0)
