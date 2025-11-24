@@ -129,9 +129,30 @@ echo "</div>";
   <!-- 註解表單 -->
   <form action="clandar_homework.php" method="post">
     <label>新增註解</label><br>
-    年:<input type="text" name="year"><br>
-    月:<input type="text" name="month"><br>
-    日:<input type="text" name="day"><br>
+    年<select name="year">
+      <?php
+        for($y = 1930; $y <= (date("Y") + 20); $y++)
+        {
+          echo "<option value='{$y}'" . (($y == $year) ? 'selected' : '') . ">{$y}</option>";
+        }
+      ?>
+    </select><br>
+    月<select name="month">
+      <?php
+        for($m = 1; $m <= 12; $m++)
+        {
+          echo "<option value='{$m}'" . (($m == $month) ? 'selected' : '') . ">{$m}</option>";
+        }
+      ?>
+    </select><br>
+    日<select name="day">
+      <?php
+        for($d = 1; $m <= 31; $m++)
+        {
+          echo "<option value='{$d}'" . (($d == date('j',$days)) ? 'selected' : '') . ">{$d}</option>";
+        }
+      ?>
+    </select><br>
     註解:<input type="text" name="note"><br>
     <input type="submit" value="新增">
   </form>
