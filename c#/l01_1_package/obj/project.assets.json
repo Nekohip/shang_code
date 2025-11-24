@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\shang\\git\\shang_code\\c#\\l01_package\\l01_package.csproj",
-      "projectName": "l01_package",
-      "projectPath": "F:\\shang\\git\\shang_code\\c#\\l01_package\\l01_package.csproj",
+      "projectUniqueName": "F:\\shang\\git\\shang_code\\c#\\l01_1_package\\l01_1_package.csproj",
+      "projectName": "l01_1_package",
+      "projectPath": "F:\\shang\\git\\shang_code\\c#\\l01_1_package\\l01_1_package.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "F:\\shang\\git\\shang_code\\c#\\l01_package\\obj\\",
+      "outputPath": "F:\\shang\\git\\shang_code\\c#\\l01_1_package\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\shang\\git\\shang_code\\c#\\l02_2_method\\l02_2_method.csproj",
-      "projectName": "l02_2_method",
-      "projectPath": "F:\\shang\\git\\shang_code\\c#\\l02_2_method\\l02_2_method.csproj",
+      "projectUniqueName": "F:\\shang\\git\\shang_code\\c#\\l02_2_method2\\l02_2_recursion.csproj",
+      "projectName": "l02_2_recursion",
+      "projectPath": "F:\\shang\\git\\shang_code\\c#\\l02_2_method2\\l02_2_recursion.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "F:\\shang\\git\\shang_code\\c#\\l02_2_method\\obj\\",
+      "outputPath": "F:\\shang\\git\\shang_code\\c#\\l02_2_method2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
