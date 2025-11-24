@@ -147,7 +147,7 @@ echo "</div>";
     </select><br>
     日<select name="day">
       <?php
-        for($d = 1; $m <= 31; $m++)
+        for($d = 1; $d <= 31; $d++)
         {
           echo "<option value='{$d}'" . (($d == date('j',$days)) ? 'selected' : '') . ">{$d}</option>";
         }
