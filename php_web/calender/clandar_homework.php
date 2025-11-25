@@ -37,6 +37,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+<div class="characters">
+  <div class="character-left">
+
+  </div>
+
+  <div class="character-right">
+
+  </div>
+</div>
+
 <h1>萬年曆</h1>  
 
 <?php
@@ -53,36 +63,36 @@ $thismonth_days = date("t", strtotime(date("{$year}-{$month}")));
 $days = strtotime("- $firstweek days", $firstday);
 $weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
 
-
 echo "<div class='container'>";
-for($i = 0; $i < 8; $i++)
-{
   echo "<div class='calander'>";
-  for($j = 0; $j < 7; $j++)
+  for($i = 0; $i < 8; $i++)
   {
-    //判斷各格子要用哪種背景/文字顏色
-    $class_day = ["boxsize"];
-    $class_week = ["boxsize_week"];
-
-    //六日
-    if($j == 0 || $j == 6)
+    echo "<div class='cal-row'>";
+    for($j = 0; $j < 7; $j++)
     {
-      $class_day[] = "color";
-      $class_week[] = "color";
-    }
+      //判斷各格子要用哪種背景/文字顏色
+      $class_day = ["box_day"];
+      $class_week = ["box_week"];
 
-    //非本月
-    if(date("m", $days) < $month || date("m", $days) > $month)
-      $class_day[] = "text_gray";
+      //六日
+      if($j == 0 || $j == 6)
+      {
+        $class_day[] = "color";
+        $class_week[] = "color";
+      }
 
-    //今天
-    if(date("Y-m-j") == date("Y-m-j", $days))
-      $class_day[] = "today_color";
+      //非本月
+      if(date("m", $days) < $month || date("m", $days) > $month)
+        $class_day[] = "text_gray";
 
-    //第一列:年月下拉選單
-    if($i == 0)
-    {
-    ?>
+      //今天
+      if(date("Y-m-j") == date("Y-m-j", $days))
+        $class_day[] = "today_color";
+
+      //第一列:年月下拉選單
+      if($i == 0)
+      {
+      ?>
         <form action="clandar_homework.php">
           <select name="dateY">
             <?php
@@ -102,69 +112,71 @@ for($i = 0; $i < 8; $i++)
           </select>月
           <input type="submit" value="確定">
         </form>
-    <?php
-      break;
+      <?php
+        break;
+      }
+      //第二列:星期
+      else if($i == 1)
+      {
+        echo "<div class='".implode(' ', $class_week)."'>".$weeks[$j]."</div>";
+      }
+      else
+      {
+        (isset($_SESSION['notes'][date('Y', $days)][date('n', $days)][date('j',$days)])) ? 
+        $message = $_SESSION['notes'][date('Y', $days)][date('n', $days)][date('j', $days)] : $message = "";
+        //開始印日
+        echo "<div class='".implode(' ', $class_day)."'>
+                <div>".date('j',$days)."</div>
+                <div>{$message}</div>
+              </div>";
+        $days = strtotime("+1 day", $days);
+      }
     }
-    //第二列:星期
-    else if($i == 1)
-    {
-      echo "<div class='".implode(' ', $class_week)."'>".$weeks[$j]."</div>";
-    }
-    else
-    {
-      (isset($_SESSION['notes'][date('Y', $days)][date('n', $days)][date('j',$days)])) ? 
-      $message = $_SESSION['notes'][date('Y', $days)][date('n', $days)][date('j', $days)] : $message = "";
-      //開始印日
-      echo "<div class='".implode(' ', $class_day)."'>".date('j',$days)."<div>{$message}</div></div>";
-      $days = strtotime("+1 day", $days);
-    }
+    echo "</div>";
   }
   echo "</div>";
-}
-echo "</table>";
-echo "</div>";
-?>
-
-<div class="tools">
-  <!-- 註解表單 -->
-  <form action="clandar_homework.php" method="post">
-    <label>新增註解</label><br>
-    年<select name="year">
-      <?php
-        for($y = 1930; $y <= (date("Y") + 20); $y++)
-        {
-          echo "<option value='{$y}'" . (($y == $year) ? 'selected' : '') . ">{$y}</option>";
-        }
-      ?>
-    </select><br>
-    月<select name="month">
-      <?php
-        for($m = 1; $m <= 12; $m++)
-        {
-          echo "<option value='{$m}'" . (($m == $month) ? 'selected' : '') . ">{$m}</option>";
-        }
-      ?>
-    </select><br>
-    日<select name="day">
-      <?php
-        for($d = 1; $d <= 31; $d++)
-        {
-          echo "<option value='{$d}'" . (($d == date('j',$days)) ? 'selected' : '') . ">{$d}</option>";
-        }
-      ?>
-    </select><br>
-    註解:<input type="text" name="note"><br>
-    <input type="submit" value="新增">
-  </form>
-
-  <!-- 註解輸入後判斷輸入不完整 -->
-  <?php 
-    if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($nyear) && empty($nmonth) && empty($nday) && empty($note))
-    {
-      echo "資料輸入不完整，請重新輸入";
-    }
   ?>
-</div>
-  
+
+  <div class="tools">
+    <!-- 註解表單 -->
+    <form action="clandar_homework.php" method="post">
+      <label>新增註解</label><br>
+      年<select name="year">
+        <?php
+          for($y = 1930; $y <= (date("Y") + 20); $y++)
+          {
+            echo "<option value='{$y}'" . (($y == $year) ? 'selected' : '') . ">{$y}</option>";
+          }
+        ?>
+      </select><br>
+      月<select name="month">
+        <?php
+          for($m = 1; $m <= 12; $m++)
+          {
+            echo "<option value='{$m}'" . (($m == $month) ? 'selected' : '') . ">{$m}</option>";
+          }
+        ?>
+      </select><br>
+      日<select name="day">
+        <?php
+          for($d = 1; $d <= 31; $d++)
+          {
+            echo "<option value='{$d}'" . (($d == date('j',$days)) ? 'selected' : '') . ">{$d}</option>";
+          }
+        ?>
+      </select><br>
+      註解:<input type="text" name="note"><br>
+      <input type="submit" value="新增">
+    </form>
+
+    <!-- 註解輸入後判斷輸入不完整 -->
+    <?php 
+      if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($nyear) && empty($nmonth) && empty($nday) && empty($note))
+      {
+        echo "資料輸入不完整，請重新輸入";
+      }
+    ?>
+  </div> <!--tools-->
+</div> <!--container-->
 </body>
 </html>
