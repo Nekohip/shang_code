@@ -20,6 +20,8 @@ body{
 .container{
     display: flex;
     flex-direction: row;
+    z-index: 2;
+    margin:400px 0 0 400px;
 }
 
 .yearmonth{
@@ -129,8 +131,12 @@ body{
 .characters{
     width:90%;
     height:800px;
-    background-color: aqua;
-    background-attachment: fixed;
+    /* background-color: aqua; */
+    position: fixed;
+    /* top:0px; */
+    /* left:0px; */
     background-repeat: no-repeat;
-    background-image: url(../img/SF2-Location-Template.png);
+    background-image: url(../img/tuesday.png);
+    z-index: 1;
+    background-size: 30%;
 }
