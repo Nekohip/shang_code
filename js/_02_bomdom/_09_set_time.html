@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+
+        .bg-pink {
+            background-color: lightcoral;
+        }
+
+        .stop {
+            margin-top: 20px;
+            width: 200px;
+            height: 50px;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <div class="stop">
+
+    </div>
+
+    <script>
+        let box = document.querySelector(".box");
+        let stopBtn = document.querySelector(".stop");
+        let tmpTimer = null;
+
+        box.addEventListener("click", function() 
+        {
+            let colorFlag = 0;
+            tmpTimer = setInterval(function() 
+            {
+                if(colorFlag == 0)
+                {
+                    box.setAttribute("class", "box bg-pink");
+                    colorFlag = 1;
+                }
+                else
+                {
+                    box.setAttribute("class", "box");
+                    colorFlag = 0;
+                }
+                console.log("colorFlag", colorFlag);
+            }, 1000);
+        });
+
+        stopBtn.addEventListener("click", function()
+        {
+            clearInterval(tmpTimer);
+        });
+    </script>
+</body>
+</html>

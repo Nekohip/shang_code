@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tv{
+            width:300px;
+            height:300px;
+            background-color: rgb(8, 116, 211);
+            margin: auto;
+
+            color: green;
+            font-size: 35px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn{
+            width:300px;
+            height:50px;
+            background-color: rgb(211, 22, 8);
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .bg_color{
+            background-color: rgb(205, 120, 50);
+        }
+    </style>
+</head>
+<body>
+    <div class="tv">
+        <span class="mySpan">?</span>
+    </div>
+    <div class="btn">
+
+    </div>
+
+    <script>
+        //bind
+        let btn = document.querySelector(".btn");
+        let tv = document.querySelector(".tv");
+        let mySpan = document.querySelector(".mySpan");
+        console.log("btn", btn);
+        console.log("tv", tv);
+
+        //按btn tv變色
+        btn.addEventListener("click", function()
+        {
+            tv.setAttribute("class", "tv bg_color");
+
+            // 1.設定空白文字
+            // 2.抓screen width height
+            // 3.放到span
+            let tmpText = "";
+            let getWidth = screen.width;
+            let getHeight = screen.height;
+            tmpText = `${getWidth} x ${getHeight}`;
+            console.log("tmpText", tmpText);
+
+            mySpan.innerText = tmpText;
+        })
+    </script>
+</body>
+</html>

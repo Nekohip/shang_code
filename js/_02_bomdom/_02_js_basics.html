@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 基礎教學</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f0f2f5;
+            color: #1a1a1a;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #4a5568;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .demo-area {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        button {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #3182ce;
+        }
+
+        .output {
+            font-weight: bold;
+            color: #2c5282;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript 基礎入門</h1>
+
+    <div class="card">
+        <h2>1. 變數 (Variables)</h2>
+        <p>JavaScript 使用 <code>let</code> 和 <code>const</code> 來宣告變數。</p>
+        <ul>
+            <li><code>let</code>: 用於可以改變的值</li>
+            <li><code>const</code>: 用於常數 (不可改變)</li>
+        </ul>
+        <div class="code-block">
+            let name = "Shang";
+            const age = 25;
+            // age = 26; // 這會報錯，因為 const 不能重新賦值
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. 函式 (Functions)</h2>
+        <p>函式是一段可以重複使用的程式碼。</p>
+        <div class="code-block">
+            function sayHello(name) {
+            return "你好, " + name + "!";
+            }
+        </div>
+        <div class="demo-area">
+            <p>試試看：</p>
+            <input type="text" id="nameInput" placeholder="輸入你的名字" style="padding: 0.5rem; margin-right: 0.5rem;">
+            <button onclick="handleGreet()">打招呼</button>
+            <p id="greetOutput" class="output"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. 互動 (DOM Manipulation)</h2>
+        <p>JavaScript 可以改變網頁上的內容。</p>
+        <div class="code-block">
+            // 改變元素的文字
+            document.getElementById("demo").innerText = "文字被改變了！";
+
+            // 改變元素的樣式
+            document.getElementById("demo").style.color = "red";
+        </div>
+        <div class="demo-area">
+            <p id="colorText">點擊按鈕來改變這段文字的顏色！</p>
+            <button onclick="changeColor()">改變顏色</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. 主控台 (Console)</h2>
+        <p>按 F12 打開開發者工具，切換到 "Console" 分頁，你可以看到我們印出的訊息。</p>
+        <div class="demo-area">
+            <button onclick="logToConsole()">印出訊息到 Console</button>
+        </div>
+    </div>
+
+    <script>
+        // 2. 函式範例
+        function handleGreet() {
+            // 取得輸入框的值
+            const name = document.getElementById('nameInput').value;
+
+            if (name) {
+                const message = "你好, " + name + "! 歡迎學習 JavaScript。";
+                // 顯示在畫面上
+                document.getElementById('greetOutput').innerText = message;
+            } else {
+                document.getElementById('greetOutput').innerText = "請先輸入名字喔！";
+            }
+        }
+
+        // 3. 互動範例
+        function changeColor() {
+            const textElement = document.getElementById('colorText');
+            // 隨機產生一個顏色
+            const colors = ['#e53e3e', '#38a169', '#3182ce', '#d69e2e', '#805ad5'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            textElement.style.color = randomColor;
+            textElement.style.fontWeight = 'bold';
+            textElement.innerText = `顏色變成了: ${randomColor}`;
+        }
+
+        // 4. Console 範例
+        function logToConsole() {
+            console.log("這是一條來自 JavaScript 的訊息！");
+            console.log("現在時間是:", new Date().toLocaleTimeString());
+            alert("已發送訊息到 Console，請按 F12 查看！");
+        }
+
+        // 頁面載入時執行
+        console.log("頁面已載入，JavaScript 準備就緒！");
+    </script>
+</body>
+
+</html>

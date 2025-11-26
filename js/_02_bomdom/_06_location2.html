@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        //1.bind
+        let myBox = document.querySelector(".box");
+        console.log("myBox", myBox);
+
+        //2.action
+        myBox.addEventListener("click", function() {
+            let url = "https://www.w3schools.com"
+            window.location.assign(url);
+        });
+    </script>
+</body>
+</html>
