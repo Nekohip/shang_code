@@ -29,6 +29,7 @@
         <li>可以不同的顏色或樣式來強調當日或周末</li>
         <a href="./calender/calendar-2.php">前往</a><br>
         <a href="./calender/clandar_homework.php">作業</a><br>
+        <a href="./calender2/clandar_homework.php">作業(無版權)</a><br>
         <a href="./calender/clandar_homework2.php">作業測試</a><br>
         <a href="./teacher/calendar.php">老師寫的</a>
     </ul>
