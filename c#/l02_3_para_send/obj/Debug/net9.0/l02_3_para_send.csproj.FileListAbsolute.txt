@@ -1,0 +1,15 @@
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\l02_3_para_send.GeneratedMSBuildEditorConfig.editorconfig
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\l02_3_para_send.AssemblyInfoInputs.cache
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\l02_3_para_send.AssemblyInfo.cs
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\l02_3_para_send.csproj.CoreCompileInputs.cache
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\l02_3_para_send.sourcelink.json
+F:\shang\git\shang_code\c#\l02_3_para_send\bin\Debug\net9.0\l02_3_para_send.exe
+F:\shang\git\shang_code\c#\l02_3_para_send\bin\Debug\net9.0\l02_3_para_send.deps.json
+F:\shang\git\shang_code\c#\l02_3_para_send\bin\Debug\net9.0\l02_3_para_send.runtimeconfig.json
+F:\shang\git\shang_code\c#\l02_3_para_send\bin\Debug\net9.0\l02_3_para_send.dll
+F:\shang\git\shang_code\c#\l02_3_para_send\bin\Debug\net9.0\l02_3_para_send.pdb
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\l02_3_para_send.dll
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\refint\l02_3_para_send.dll
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\l02_3_para_send.pdb
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\l02_3_para_send.genruntimeconfig.cache
+F:\shang\git\shang_code\c#\l02_3_para_send\obj\Debug\net9.0\ref\l02_3_para_send.dll

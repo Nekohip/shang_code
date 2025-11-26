@@ -1,0 +1,15 @@
+F:\shang\git\shang_code\c#\practice\bin\Debug\net9.0\practice.exe
+F:\shang\git\shang_code\c#\practice\bin\Debug\net9.0\practice.deps.json
+F:\shang\git\shang_code\c#\practice\bin\Debug\net9.0\practice.runtimeconfig.json
+F:\shang\git\shang_code\c#\practice\bin\Debug\net9.0\practice.dll
+F:\shang\git\shang_code\c#\practice\bin\Debug\net9.0\practice.pdb
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\practice.GeneratedMSBuildEditorConfig.editorconfig
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\practice.AssemblyInfoInputs.cache
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\practice.AssemblyInfo.cs
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\practice.csproj.CoreCompileInputs.cache
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\practice.sourcelink.json
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\practice.dll
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\refint\practice.dll
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\practice.pdb
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\practice.genruntimeconfig.cache
+F:\shang\git\shang_code\c#\practice\obj\Debug\net9.0\ref\practice.dll

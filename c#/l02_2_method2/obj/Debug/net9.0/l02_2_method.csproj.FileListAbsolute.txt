@@ -1,0 +1,15 @@
+F:\shang\git\shang_code\c#\l02_2_method\bin\Debug\net9.0\l02_2_method.exe
+F:\shang\git\shang_code\c#\l02_2_method\bin\Debug\net9.0\l02_2_method.deps.json
+F:\shang\git\shang_code\c#\l02_2_method\bin\Debug\net9.0\l02_2_method.runtimeconfig.json
+F:\shang\git\shang_code\c#\l02_2_method\bin\Debug\net9.0\l02_2_method.dll
+F:\shang\git\shang_code\c#\l02_2_method\bin\Debug\net9.0\l02_2_method.pdb
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\l02_2_method.GeneratedMSBuildEditorConfig.editorconfig
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\l02_2_method.AssemblyInfoInputs.cache
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\l02_2_method.AssemblyInfo.cs
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\l02_2_method.csproj.CoreCompileInputs.cache
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\l02_2_method.sourcelink.json
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\l02_2_method.dll
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\refint\l02_2_method.dll
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\l02_2_method.pdb
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\l02_2_method.genruntimeconfig.cache
+F:\shang\git\shang_code\c#\l02_2_method\obj\Debug\net9.0\ref\l02_2_method.dll

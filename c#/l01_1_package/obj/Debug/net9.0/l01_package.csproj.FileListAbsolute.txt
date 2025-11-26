@@ -1,0 +1,15 @@
+F:\shang\git\shang_code\c#\l01_package\bin\Debug\net9.0\l01_package.exe
+F:\shang\git\shang_code\c#\l01_package\bin\Debug\net9.0\l01_package.deps.json
+F:\shang\git\shang_code\c#\l01_package\bin\Debug\net9.0\l01_package.runtimeconfig.json
+F:\shang\git\shang_code\c#\l01_package\bin\Debug\net9.0\l01_package.dll
+F:\shang\git\shang_code\c#\l01_package\bin\Debug\net9.0\l01_package.pdb
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\l01_package.GeneratedMSBuildEditorConfig.editorconfig
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\l01_package.AssemblyInfoInputs.cache
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\l01_package.AssemblyInfo.cs
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\l01_package.csproj.CoreCompileInputs.cache
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\l01_package.sourcelink.json
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\l01_package.dll
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\refint\l01_package.dll
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\l01_package.pdb
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\l01_package.genruntimeconfig.cache
+F:\shang\git\shang_code\c#\l01_package\obj\Debug\net9.0\ref\l01_package.dll

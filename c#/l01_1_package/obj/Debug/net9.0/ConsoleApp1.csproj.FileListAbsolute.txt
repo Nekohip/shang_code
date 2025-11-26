@@ -1,0 +1,15 @@
+F:\shang\git\shang_code\c#\ConsoleApp1\bin\Debug\net9.0\ConsoleApp1.exe
+F:\shang\git\shang_code\c#\ConsoleApp1\bin\Debug\net9.0\ConsoleApp1.deps.json
+F:\shang\git\shang_code\c#\ConsoleApp1\bin\Debug\net9.0\ConsoleApp1.runtimeconfig.json
+F:\shang\git\shang_code\c#\ConsoleApp1\bin\Debug\net9.0\ConsoleApp1.dll
+F:\shang\git\shang_code\c#\ConsoleApp1\bin\Debug\net9.0\ConsoleApp1.pdb
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.AssemblyInfoInputs.cache
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.AssemblyInfo.cs
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.sourcelink.json
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.dll
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\refint\ConsoleApp1.dll
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.pdb
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ConsoleApp1.genruntimeconfig.cache
+F:\shang\git\shang_code\c#\ConsoleApp1\obj\Debug\net9.0\ref\ConsoleApp1.dll

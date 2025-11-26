@@ -1,0 +1,5 @@
+F:\shang\git\shang_code\c#\l03_null\obj\Debug\net9.0\l03_null.GeneratedMSBuildEditorConfig.editorconfig
+F:\shang\git\shang_code\c#\l03_null\obj\Debug\net9.0\l03_null.AssemblyInfoInputs.cache
+F:\shang\git\shang_code\c#\l03_null\obj\Debug\net9.0\l03_null.AssemblyInfo.cs
+F:\shang\git\shang_code\c#\l03_null\obj\Debug\net9.0\l03_null.csproj.CoreCompileInputs.cache
+F:\shang\git\shang_code\c#\l03_null\obj\Debug\net9.0\l03_null.sourcelink.json

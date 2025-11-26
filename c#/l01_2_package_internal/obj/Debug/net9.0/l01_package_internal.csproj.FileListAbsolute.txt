@@ -1,0 +1,15 @@
+F:\shang\git\shang_code\c#\l01_package_internal\bin\Debug\net9.0\l01_package_internal.exe
+F:\shang\git\shang_code\c#\l01_package_internal\bin\Debug\net9.0\l01_package_internal.deps.json
+F:\shang\git\shang_code\c#\l01_package_internal\bin\Debug\net9.0\l01_package_internal.runtimeconfig.json
+F:\shang\git\shang_code\c#\l01_package_internal\bin\Debug\net9.0\l01_package_internal.dll
+F:\shang\git\shang_code\c#\l01_package_internal\bin\Debug\net9.0\l01_package_internal.pdb
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\l01_package_internal.GeneratedMSBuildEditorConfig.editorconfig
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\l01_package_internal.AssemblyInfoInputs.cache
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\l01_package_internal.AssemblyInfo.cs
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\l01_package_internal.csproj.CoreCompileInputs.cache
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\l01_package_internal.sourcelink.json
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\l01_package_internal.dll
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\refint\l01_package_internal.dll
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\l01_package_internal.pdb
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\l01_package_internal.genruntimeconfig.cache
+F:\shang\git\shang_code\c#\l01_package_internal\obj\Debug\net9.0\ref\l01_package_internal.dll
