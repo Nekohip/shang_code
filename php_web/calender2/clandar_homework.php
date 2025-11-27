@@ -168,5 +168,9 @@ echo "<div class='container'>";
     ?>
   </div> <!--tools-->
 </div> <!--container-->
+
+<script>
+  
+</script>
 </body>
 </html>
