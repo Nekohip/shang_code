@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container {
+            width: 80%;
+            /* background-color: lightblue; */
+            margin: auto;
+        }
+
+        .form-box{
+            width: 591px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left:50px;
+            background-color: lightgrey;
+            border-radius: 5%;
+            font-size: 20px;
+        }
+
+        .result{
+            width: 591px;
+            /* height: 10vh; */
+            margin: auto;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: lightgrey;
+            font-size: 30px;
+            border-radius: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h3>財物安全</h3>
+            <p>
+                <label>1.住:租/月</label>
+                <input type="text" name="house" id="house" value="">
+            </p>
+            <p>
+                <label>2.生活:食物/生活用品</label>
+                <input type="text" name="life" id="life" value="">
+            </p>
+            <p>
+                <label>3.公共事業費:水、電、網路、電話</label>
+                <input type="text" name="utility" id="utility" value="">
+            </p>
+            <p>
+                <label>4.交通費</label>
+                <input type="text" name="traffic" id="traffic" value="">
+            </p>
+            <p>
+                <label>5.基本保險</label>
+                <input type="text" name="insurance" id="insurance" value="">
+            </p>
+            <p>
+                <button id="calc">計算總額</button>
+            </p>
+        </div>
+
+        <div class="result">
+            <p>每月支出總計:<span id="monthlyTotal"></sapn></p>
+            <p>每年支出總計: <span id="annualTotal"></span></p>
+        </div>
+    </div>
+    <script>
+        let houseInput = document.getElementById("house");
+        let lifeInput = document.getElementById("life");
+        let utilityInput = document.getElementById("utility");
+        let trafficInput = document.getElementById("traffic");
+        let insuranceInput = document.getElementById("insurance");
+        let calcBtn = document.getElementById("calc");
+        let mTotalSpan = document.getElementById("monthlyTotal");
+        let aTotalSpan = document.getElementById("annualTotal");
+
+        calcBtn.addEventListener("click", function() 
+        {
+            let houseValue = Number(houseInput.value);
+            let lifeValue = Number(lifeInput.value);
+            let utilityValue = Number(utilityInput.value);
+            let trafficValue = Number(trafficInput.value);
+            let insuranceValue = Number(insuranceInput.value);
+
+            let monthlyTotal = houseValue + lifeValue + utilityValue + trafficValue + insuranceValue;
+            let annualTotal = monthlyTotal * 12;
+
+            mTotalSpan.innerText = monthlyTotal;
+            aTotalSpan.innerText = annualTotal;
+        })
+    </script>
+</body>
+</html>

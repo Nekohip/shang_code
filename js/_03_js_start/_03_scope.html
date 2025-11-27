@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .bg-pink {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+    </div>
+    <script>
+        // 1.bind
+        const box = document.querySelector('.box');
+        let bigMan = "Trump";
+        
+        console.log("box", box);
+        console.log("bigMan", bigMan);
+
+        console.log("box typeof", typeof(box));
+        console.log("box typeof", typeof(bigMan));
+        
+        let num1 = 100;
+        let num2 = "200";
+        console.log("number1 typeof", typeof(num1));
+        console.log("number2 typeof", typeof(num2));
+        //Number:強制轉型 parseInt() 轉整數 parseFloat() 轉浮點數
+        result1 = num1 + Number(num2);
+        console.log("result1", result1);
+        console.log("result1 typeof", typeof(result1));
+
+        result2 = num1 + parseInt(num2);
+        console.log("result2", result2);
+        console.log("result2 typeof", typeof(result2));
+        //string + number回傳string
+        result3 = num1 + num2;
+        console.log("result3", result3);
+        console.log("result3 typeof", typeof(result3));
+
+        // 2.action
+        box.addEventListener('click', function () {
+            let text = "click ok";
+            console.log('bigMan', bigMan);
+            console.log('text', text);
+            box.setAttribute('class', 'box bg-pink');
+        });
+
+
+        // {
+        //     let happy = "happy day";
+        // }
+        // console.log('happy', happy);
+    </script>
+</body>
+
+</html>
