@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
   <title>萬年曆作業</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body id="bodyImg">
 <h1>萬年曆</h1>  
 
 <?php
@@ -100,7 +100,7 @@ echo "<div class='container'>";
               }
             ?>
           </select>月
-          <input type="submit" value="確定">
+          <input type="submit" value="確定" id="submitBtn">
         </form>
       <?php
         break;
@@ -170,7 +170,11 @@ echo "<div class='container'>";
 </div> <!--container-->
 
 <script>
-  
+  let submitBtn = document.getElemetnByid("submitBtn");
+  let bodyImg = document.getElemetnByid("bodyImg");
+  submitBtn.addEventListener("click", function() {
+    bodyImg.setAttrebute("class", "body_img");
+  })
 </script>
 </body>
 </html>
