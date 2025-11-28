@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
   <title>萬年曆作業</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body id="bodyImg">
+<body class="body_img1" id="bodyImg">
 <h1>萬年曆</h1>  
 
 <?php
@@ -170,11 +170,19 @@ echo "<div class='container'>";
 </div> <!--container-->
 
 <script>
-  let submitBtn = document.getElemetnByid("submitBtn");
-  let bodyImg = document.getElemetnByid("bodyImg");
-  submitBtn.addEventListener("click", function() {
-    bodyImg.setAttrebute("class", "body_img");
-  })
+  const backgrounds = [];
+  backgrounds[12] = "body_img12";
+
+  const year = <?= $year ?>;
+  const month = <?= $month ?>;
+
+  const body = document.body;
+
+  backgrounds.forEach(cls => {
+    body.classList.remove(cls);
+  });
+
+  body.classList.add(backgrounds[month]);
 </script>
 </body>
 </html>
