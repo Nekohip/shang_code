@@ -188,29 +188,12 @@ echo "<div class='container'>";
     "bg_img12"
   ];
 
-  const bodyColors = [
-    "",
-    "body_color1",
-    "body_color2",
-    "body_color3",
-    "body_color4",
-    "body_color5",
-    "body_color6",
-    "body_color7",
-    "body_color8",
-    "body_color9",
-    "body_color10",
-    "body_color11",
-    "body_color12"
-  ];
-
   const year = <?= $year ?>;
   const month = <?= $month ?>;
   const background = document.getElementById("background");
   const body = document.body;
 
   background.classList.add(backgroundImg[month]);
-  body.classList.add(bodyColors[month]);
 </script>
 
 

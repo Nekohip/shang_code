@@ -9,6 +9,7 @@ body{
     height: 100vh;
     z-index: -1;
     background: transparent;
+    background-color: black;
 }
 
 
@@ -44,7 +45,9 @@ body{
     flex-direction: column;
     align-items: center;
     transition: background-color 0.4s;
-    background-color: rgb(116, 201, 253);
+    background-color: rgb(176, 171, 171);
+    opacity: 0.7;
+    border-radius: 10%;
 }
 
 .box_week{
@@ -54,7 +57,9 @@ body{
     justify-content: center;
     align-items: center;
     transition: background-color 0.4s;
-    background-color: rgb(116, 201, 253);
+    background-color: rgb(152, 207, 240);
+    opacity: 0.7;
+    border-radius: 10%;
 }
 
 .cal-row{
@@ -75,35 +80,16 @@ body{
 .box_week:hover,
 .box_day:hover,
 .yearmonth:hover {
-    background-color: lightblue;
-}
-
-.next_prev{
-    width: 145px;
-    height: 50px;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    background-color: gray;      
-}
-
-.next_prev>a{
-    text-decoration: none;
-    color: lightblue;
-    transition: color 0.3s;
-}
-
-.next_prev>a:hover{
-    color: yellow;
+    background-color: rgb(112, 32, 117);
 }
 
 .box_day:active{
-    background-color: royalblue;
+    background-color: rgb(90, 41, 93);
 }
 
 
 .color{
-    background-color: lightcoral;
+    background-color: rgb(217, 151, 151);
 }
 
 .today_color{
@@ -115,62 +101,63 @@ body{
 }
 
 .tools{
-    margin: 30px 0 0 100px;
-    border: 1px solid black;
+    margin: 88px 0 0 100px;
+    padding-left: 10px;
+    border: 5px solid rgba(255, 255, 255, 0.51);
+    border-radius: 5%;
     width: 400px;
     height:233px;
     color:aliceblue;
 }
 
 .bg_img1{
-    background-image:url("../img/winter.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/winter1.jpg");
+    opacity: 0.8;
 }
 .bg_img2{
-    background-image:url("../img/winter.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/winter2.jpg");
+    opacity: 0.8;
 }
 .bg_img3{
-    background-image:url("../img/spring.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/spring1.jpg");
+    opacity: 0.8;
 }
 .bg_img4{
-    background-image:url("../img/spring.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/spring2.jpg");
+    opacity: 0.8;
 }
 .bg_img5{
-    background-image:url("../img/spring.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/spring3.jpg");
+    opacity: 0.8;
 }
 .bg_img6{
-    background-image:url("../img/summer.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/summer1.jpg");
+    opacity: 0.8;
 }
 .bg_img7{
-    background-image:url("../img/summer.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/summer2.jpg");
+    opacity: 0.8;
 }
 .bg_img8{
-    background-image:url("../img/summer.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/summer3.jpg");
+    opacity: 0.8;
 }
 .bg_img9{
-    background-image:url("../img/fall.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/fall1.jpg");
+    opacity: 0.8;
 }
 .bg_img10{
-    background-image:url("../img/fall.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/fall2.jpg");
+    opacity: 0.8;
 }
 .bg_img11{
-    background-image:url("../img/fall.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/fall3.jpg");
+    opacity: 0.8;
 }
 .bg_img12{
-    background-image:url("../img/winter.jpg");
-    /* animation: slideIn 1s ease-in-out; */
+    background-image:url("../img/winter3.jpg");
+    opacity: 0.8;
 }
-
 
 .background{
     position: fixed;
