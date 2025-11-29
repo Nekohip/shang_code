@@ -169,33 +169,50 @@ echo "<div class='container'>";
   </div> <!--tools-->
 </div> <!--container-->
 
+<div class="background" id="background"></div>
+
 <script>
-  const backgrounds = [
+  const backgroundImg = [
     "",
-    "body_img1",
-    "body_img2",
-    "body_img3",
-    "body_img4",
-    "body_img5",
-    "body_img6",
-    "body_img7",
-    "body_img8",
-    "body_img9",
-    "body_img10",
-    "body_img11",
-    "body_img12"
+    "bg_img1",
+    "bg_img2",
+    "bg_img3",
+    "bg_img4",
+    "bg_img5",
+    "bg_img6",
+    "bg_img7",
+    "bg_img8",
+    "bg_img9",
+    "bg_img10",
+    "bg_img11",
+    "bg_img12"
+  ];
+
+  const bodyColors = [
+    "",
+    "body_color1",
+    "body_color2",
+    "body_color3",
+    "body_color4",
+    "body_color5",
+    "body_color6",
+    "body_color7",
+    "body_color8",
+    "body_color9",
+    "body_color10",
+    "body_color11",
+    "body_color12"
   ];
 
   const year = <?= $year ?>;
   const month = <?= $month ?>;
-
+  const background = document.getElementById("background");
   const body = document.body;
 
-  backgrounds.forEach(cls => {
-    if(cls) body.classList.remove(cls);
-  });
-
-  body.classList.add(backgrounds[month]);
+  background.classList.add(backgroundImg[month]);
+  body.classList.add(bodyColors[month]);
 </script>
+
+
 </body>
 </html>
