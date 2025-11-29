@@ -166,6 +166,7 @@ echo "<div class='container'>";
         echo "資料輸入不完整，請重新輸入";
       }
     ?>
+    <p>*輸入在註解欄輸入文字並新增後，文字會保存在選擇的日期格子上。</p>
   </div> <!--tools-->
 </div> <!--container-->
 
