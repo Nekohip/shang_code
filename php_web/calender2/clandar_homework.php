@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
   <title>萬年曆作業</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="body_img1" id="bodyImg">
+<body>
 <h1>萬年曆</h1>  
 
 <?php
@@ -170,8 +170,21 @@ echo "<div class='container'>";
 </div> <!--container-->
 
 <script>
-  const backgrounds = [];
-  backgrounds[12] = "body_img12";
+  const backgrounds = [
+    "",
+    "body_img1",
+    "body_img2",
+    "body_img3",
+    "body_img4",
+    "body_img5",
+    "body_img6",
+    "body_img7",
+    "body_img8",
+    "body_img9",
+    "body_img10",
+    "body_img11",
+    "body_img12"
+  ];
 
   const year = <?= $year ?>;
   const month = <?= $month ?>;
@@ -179,7 +192,7 @@ echo "<div class='container'>";
   const body = document.body;
 
   backgrounds.forEach(cls => {
-    body.classList.remove(cls);
+    if(cls) body.classList.remove(cls);
   });
 
   body.classList.add(backgrounds[month]);

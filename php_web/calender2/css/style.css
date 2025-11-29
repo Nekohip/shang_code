@@ -5,10 +5,8 @@
     
 }
 
-.body_img1{
+body{
     height: 100vh;
-    display: flex;
-    flex-direction: column;
     /* background-color: rgb(0, 2, 92); */
     /* background-image: url(https://lipsum.app/id/24/3840x2160); */
     background-size: 100%;
@@ -16,9 +14,6 @@
     background-attachment: fixed;
 }
 
-.body_img12{
-    background-image: url(https://lipsum.app/id/20/3840x2160);
-}
 
 .container{
     display: flex;
@@ -129,4 +124,41 @@
     width: 400px;
     height:233px;
     color:aliceblue;
+}
+
+.body_img1{
+    background-image:url("../img/winter.jpg")
+}
+.body_img2{
+    background-image:url("../img/winter.jpg")
+}
+.body_img3{
+    background-image:url("../img/spring.jpg")
+}
+.body_img4{
+    background-image:url("../img/spring.jpg")
+}
+.body_img5{
+    background-image:url("../img/spring.jpg")
+}
+.body_img6{
+    background-image:url("../img/summer.jpg")
+}
+.body_img7{
+    background-image:url("../img/summer.jpg")
+}
+.body_img8{
+    background-image:url("../img/summer.jpg")
+}
+.body_img9{
+    background-image:url("../img/fall.jpg")
+}
+.body_img10{
+    background-image:url("../img/fall.jpg")
+}
+.body_img11{
+    background-image:url("../img/fall.jpg")
+}
+.body_img12{
+    background-image:url("../img/winter.jpg")
 }
