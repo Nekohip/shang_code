@@ -167,14 +167,14 @@ body{
     height:100%;
     background-size: 100%;
     background-repeat: no-repeat;
-    animation: slideIn 1s ease-in-out;
+    animation: fade-in-out 1.5s ease-in-out;
 }
 
-@keyframes slideIn{
+@keyframes fade-in-out {
     0%{
-        transform: translateX(-100px);
+        opacity: 0;;
     }
     100%{
-        transform: translateX(0px);
+        opacity: 0.8;
     }
 }
