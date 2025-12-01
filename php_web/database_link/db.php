@@ -1,5 +1,5 @@
 <?php 
-$dsn='mysql:host=localhost;dbname=finance_db;charset=utf8';
+$dsn='mysql:host=localhost;dbname=daily_account;charset=utf8';
 $pdo= new PDO($dsn,'root','');
 
 
