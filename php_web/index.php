@@ -40,8 +40,8 @@
     <a href="./include_div/index.php">我改老師寫的</a>
 
     <h2>PHP連結database</h2>
-    <a href=".\database\db.php">連結表單</a><br>
-    <a href=".\database\reg.php">註冊系統</a><br>
+    <a href=".\database_link\db.php">連結表單</a><br>
+    <a href=".\database_link\reg.php">註冊系統</a><br>
 
 
     <h2>練習get/post</h2>
