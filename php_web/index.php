@@ -39,6 +39,11 @@
     <a href="./teacher/div2/index.php">老師寫的(檔名判斷)</a><br>
     <a href="./include_div/index.php">我改老師寫的</a>
 
+    <h2>PHP連結database</h2>
+    <a href=".\database\db.php">連結表單</a><br>
+    <a href=".\database\reg.php">註冊系統</a><br>
+
+
     <h2>練習get/post</h2>
     <a href="./practice/practice_getpost1.php">前往</a>
     <h2>練習session</h2>
