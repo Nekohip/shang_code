@@ -1,5 +1,7 @@
 <?php 
-$dsn='mysql:host=localhost;dbname=daily_account;charset=utf8';
+//資料庫類型:host=主機名;使用的資料庫;編碼
+$dsn='mysql:host=localhost;dbname=finance_db;charset=utf8';
+//PDO(dsn; 使用者名稱; 密碼)
 $pdo= new PDO($dsn,'root','');
 
 
