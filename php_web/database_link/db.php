@@ -1,12 +1,14 @@
 <?php 
 //資料庫類型:host=主機名;使用的資料庫;編碼
 $dsn='mysql:host=localhost;dbname=finance_db;charset=utf8';
-//PDO(dsn; 使用者名稱; 密碼)
+//PDO(dsn; 使用者名稱; 密碼)，是一個class
+//$pdo是實體化的物件
 $pdo= new PDO($dsn,'root','');
 
 
 $sql="SELECT * FROM category";
-
+//->(方法呼叫)
+//呼叫PDO的方法query()，傳入sql，回傳PDOStatement物件，再呼叫fetchAll
 $rows=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
 /* echo "<pre>";
