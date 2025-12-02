@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 300px;
+            /* background-color: aquamarine; */
+            margin: auto;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .container>div{
+            width: 60%;
+        }
+
+        .submit-btn{
+            width: 100%;
+            height: 30px;
+            background-color: lightpink;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <label for="name">姓名</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="name">電話</label>
+            <input type="text" name="phone" id="phone">
+        </div>
+        <div>
+            <input type="submit" value="送出" id="myBtn" class="submit-btn">
+        </div>
+        <div class="div">
+            <span id="redultSpan">確認訂位?</span>
+        </div>
+</body>
+<script>
+    const inputName = document.getElementById("name");
+    const inputPhone = document.getElementById("phone");
+    const myBtn = document.getElementById("myBtn");
+    const resultSpan = document.getElementById("redultSpan");
+
+    console.log("inputName", inputName);
+    console.log("phone", inputPhone);
+    console.log("myBtn", myBtn);
+    console.log("redultSpan", redultSpan);
+
+    myBtn.addEventListener("click", function() {
+        console.log("click btn");
+        let nameValue = inputName.value;
+        let phoneValue = inputPhone.value;
+        console.log("nameValue", nameValue);
+        console.log("phoneValue", phoneValue);
+
+        let tmpText = ``;
+        //用nameValue判斷tmpText寫什麼
+        switch(nameValue) {
+        case "cat":
+            //``裡能用${}插變數
+            tmpText = `訂位已滿<br>${nameValue}請改天再來`;
+            break;
+        case "amy":
+        case "bob":
+            tmpText = `免費 訂位成功，${nameValue}<br>電話：${phoneValue}`;
+            break;
+
+        case"dog":
+            tmpText = `9折 訂位成功，${nameValue}<br>電話：${phoneValue}`;
+            break;
+        default:
+            tmpText = `訂位成功，${nameValue}<br>電話:${phoneValue}`;
+            break;
+        }
+        resultSpan.innerHTML = tmpText;
+    });
+
+</script>
+</html>

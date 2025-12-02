@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: lightblue;
+            display: flex;
+            flex-direction: column;
+            width:500px;
+            margin: auto;
+            flex-wrap: wrap;
+            align-items: center;
+            height:30vh;
+            justify-content: space-around;
+        }
+
+        .input{
+            font-size: 22px;
+        }
+
+        .num {
+            border: 2px solid black;
+            width:120px;
+            height: 40px;
+            font-size: 22px;
+            outline: none;
+            /* border-radius: 15px; */
+        }
+
+        .num:focus {
+            border-color: #e70a0a;
+            box-shadow: 0 0 8px rgba(221, 46, 2, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <label for="num1">Number 1:</label>
+            <input type="text" class="num" name="num1" id="num1" >
+        </div>
+
+        <div class="input">
+            <label for="num2">Number 2:</label>
+            <input type="text" class="num" name="num2" id="num2">
+        </div>
+
+        <div class="input">
+            <label for="operator">運算子:</label>
+            <button value="+" id="operator">+</button>
+            <button value="-" id="operator">-</button>
+            <button value="*" id="operator">x</button>
+            <button value="/" id="operator">÷</button>
+        </div>
+
+        <div class="input">
+            <input type="submit" value="計算" id="submitBtn">
+        </div>
+
+        <div class="input">
+            <span id="result">計算結果:</span>
+        </div>
+    </div>
+
+    <script>
+        const num1Input = document.getElementById("num1");
+        const num2Input = document.getElementById("num2");
+        const operatorInput = document.getElementById("operator");
+        const submitBtn = document.getElementById("submitBtn");
+        const result = document.getElementById("result");
+
+        console.log("num1Input", num1Input);
+        console.log("num2Input", num2Input);
+        console.log("operatorInput", operatorInput);
+        console.log("submitBtn", submitBtn);
+        console.log("result", result);
+
+        submitBtn.addEventListener("click", function() {
+            console.log("click btn");
+            let num1 = num1Input.value;
+            let num2 = num2Input.value;
+            let oper = operatorInput.value;
+            console.log("operator", oper);
+            let res = ``;
+
+            switch(oper) {
+                case "+":
+                    res = Number(num1) + Number(num2);
+                break;
+                case "-":
+                    res = Number(num1) - Number(num2);
+                break;
+                case "*":
+                    res = Number(num1) * Number(num2);
+                break;
+                case "/":
+                    res = Number(num1) / Number(num2);
+                break;
+            }
+
+            result.innerHTML = `${num1} ${oper} ${num2} = ${res}`;
+        })
+
+    </script>
+</body>
+</html>
