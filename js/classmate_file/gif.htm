@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡易計算機</title>
+    <style>
+        .box {
+            width: 350px;
+            height: 450px;
+            background-color: bisque;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            text-align: center;
+
+            flex-wrap: wrap;
+        }
+
+        .box>p {
+            width: 65%;
+            margin-left: 5%;
+        }
+
+        .operator {
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 1px solid #333;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .operator:hover {
+            background-color: #ddd;
+        }
+
+        .operator.active {
+            background-color: #4CAF50 !important;
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>
+            <label for="num1">1st</label>
+            <input type="text" name="num1" id="num1">
+        </p>
+        <p>
+            <label for="num2">2nd</label>
+            <input type="text" name="num2" id="num2">
+        </p>
+        <p>
+            <label for="">運算符號</label><br>
+            <button type="button" class="operator active" data-op="+">+</button>
+            <button type="button" class="operator" data-op="-">-</button>
+            <button type="button" class="operator" data-op="*">*</button>
+            <button type="button" class="operator" data-op="/">/</button>
+        </p>
+        <p>
+            <label for="">=</label>
+            <input type="button" value="等於" id="equalBtn">
+        </p>
+        <p>
+            <label for="">計算結果</label>
+            <input type="text" name="result" id="resultBox" readonly>
+        </p>
+    </div>
+
+    <script>
+        const input1st = document.getElementById('num1');
+        const input2nd = document.getElementById('num2');
+        const equalBtn = document.getElementById('equalBtn');
+        const resultBox = document.getElementById('resultBox');
+        const operators = document.querySelectorAll('.operator');
+
+        // Store currently selected operator
+        let selectedOperator = '+';
+
+        console.log('num1', input1st);
+        console.log('num2', input2nd);
+        console.log('equalBtn', equalBtn);
+        console.log('resultBox', resultBox);
+
+        // Add click event for each operator button
+        operators.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove active class from all buttons
+                operators.forEach(btn => btn.classList.remove('active'));
+
+                // Set current button as active
+                this.classList.add('active');
+
+                // Store selected operator
+                selectedOperator = this.getAttribute('data-op');
+                console.log('Selected operator:', selectedOperator);
+            });
+        });
+
+        // Calculate when equal button is clicked
+        equalBtn.addEventListener('click', function () {
+            const num1 = parseFloat(input1st.value);
+            const num2 = parseFloat(input2nd.value);
+
+            // Check if input is valid
+            if (isNaN(num1) || isNaN(num2)) {
+                resultBox.value = 'Please enter valid numbers';
+                return;
+            }
+
+            let result;
+
+            // Calculate based on selected operator
+            switch (selectedOperator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        resultBox.value = 'Cannot divide by zero';
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = 'Error';
+            }
+
+            // Display result (rounded to 6 decimal places)
+            resultBox.value = Math.round(result * 1000000) / 1000000;
+            console.log(`Calculation: ${num1} ${selectedOperator} ${num2} = ${result}`);
+        });
+
+    </script>
+</body>
+
+</html>
