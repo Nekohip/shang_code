@@ -5,15 +5,17 @@ $dsn='mysql:host=localhost;dbname=finance_db;charset=utf8';
 //$pdo是實體化的物件
 $pdo= new PDO($dsn,'root','');
 
-
 $sql="SELECT * FROM category";
 //->(方法呼叫)
 //呼叫PDO的方法query()，傳入sql，回傳PDOStatement物件，再呼叫fetchAll
+//最後回傳一個雙層陣列(每筆資料一個陣列)
 $rows=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
-/* echo "<pre>";
-print_r($rows);
-echo "</pre>"; */
+foreach($rows as $row){
+    foreach($row as $value){
+        echo "$value<br>";
+    }
+} 
 
 ?>
 <style>
@@ -74,14 +76,15 @@ tr:nth-child(even) {
     <th>created_at</th>
     <th>updated_at</th>
 <?php 
+//一列內層印完換行(tr)換下個陣列
 foreach($rows as $row){
     echo "<tr>";
-    foreach($row as $key=>$value){
+    foreach($row as $value){
         echo "<td>$value</td>";
     }
     echo "</tr>";
 }
-
+//$key=>
 
 ?>
 </table>
