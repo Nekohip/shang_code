@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //裡面裝object(key:value)
+        let myObj1 = [
+            {
+                "id" : 1,
+                "name" : "Eric"
+            },
+            {
+                "id" : 2,
+                "name" : "Vincent"
+            },
+            {
+                "id" : 3,
+                "name" : "Ame"
+            }
+        ];
+        //裡面裝陣列
+        let myObj2 = [
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+        console.log("Obj1", myObj1);
+        //可以用".key"指定value
+        console.log("Obj[0]id:", myObj1[0].id);
+        console.log("Obj[0]name:", myObj1[0].name);
+        console.log("Obj2", myObj2);
+    </script>
+</body>
+</html>

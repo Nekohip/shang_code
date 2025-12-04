@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function_practice</title>
+    <style>
+        .container-light {
+            width: 500px;
+            height: 500px;
+            background-color: black;
+            margin: auto;
+        }
+
+        .light_color1 {
+            background-color: greenyellow;
+            animation: out 0.5s ease-in-out;
+        }
+
+        .light_color2 {
+            background-color: lightgoldenrodyellow;
+            animation: out 0.5s ease-in-out;
+        }
+
+        .light_color3 {
+            background-color: lightcoral;
+            animation: out 0.5s ease-in-out;
+        }
+
+        .container-button {
+            width: 500px;
+            height: 150px;
+            background-color: lightgray;
+            margin: auto;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .btn1 {
+            width: 130px;
+            height: 130px;
+            border-radius: 100px;
+        }
+
+        .btn2 {
+            width: 130px;
+            height: 130px;
+            border-radius: 100px;
+        }
+
+        .btn3 {
+            width: 130px;
+            height: 130px;
+            border-radius: 100px;
+        }
+
+        .btn1:active{
+            border: 3px solid rgb(4, 0, 255);
+         }
+
+        .btn2:active{
+            border: 3px solid rgb(17, 0, 255);
+         }
+
+        .btn3:active{
+            border: 3px solid rgb(17, 0, 255);
+         }
+
+        @keyframes out {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-light" id="light">
+    </div>
+
+    <div class="container-button">
+        <div class="btn1 light_color1" id="btn1">
+        </div>
+
+        <div class="btn2 light_color2" id="btn2">
+        </div>
+
+        <div class="btn3 light_color3" id="btn3">
+        </div>
+    </div>
+
+    <script>
+        const light = document.getElementById("light");
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+        const btn3 = document.getElementById("btn3");
+        function changeColor(btn) {
+            light.classList.remove(...light.classList);
+            light.offsetHeight;
+            light.setAttribute("class", `container-light ${btn.classList[1]}`);
+        }
+
+        btn1.addEventListener("click", function(){
+            changeColor(btn1);
+        });
+
+        btn2.addEventListener("click", function(){
+            changeColor(btn2);
+        });
+
+        btn3.addEventListener("click", function(){
+            changeColor(btn3);
+        });
+    </script>
+</body>
+</html>

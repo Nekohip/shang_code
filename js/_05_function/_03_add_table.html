@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table id="table1">
+        <tr>
+            <td width="20%">
+                id
+            </td>
+
+            <td width="20%">
+                name
+            </td>
+                
+            <td>
+                mobile
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                1
+            </td>
+
+            <td>
+                Eric
+            </td>
+                
+            <td>
+                0999999999
+            </td>
+        </tr>
+    </table>
+
+    
+
+    <script>
+        const table1 = document.getElementById("table1");
+        console.log("table1", table1);
+        let row_add = `
+            <tr>
+                <td>2</td>
+                <td>Vincent</td>
+                <td>0988888888</td>
+            </tr>
+        `;
+        table1.innerHTML += row_add;
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .table2{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table id="table1" class="table1">
+        <tr>
+            <td width="20%">
+                id
+            </td>
+
+            <td width="20%">
+                name
+            </td>
+                
+            <td>
+                mobile
+            </td>
+        </tr>
+
+    </table>
+
+    <table id="store_address" class="table2">
+        <th width="10%">
+            id
+        </th>
+
+        <th width="20%">
+            name
+        </th>
+
+        <th>
+            address
+        </th>
+    </table>
+
+    <script>
+        const table1 = document.getElementById("table1");
+        console.log("table1", table1);
+
+        let row_add = ``;
+        let data = [
+            {
+                "id" : 1,
+                "name" : "Eric",
+                "mobile" : "0911"
+            },
+            {
+                "id" : 2,
+                "name" : "Vincent",
+                "mobile" : "0922"
+            },
+            {
+                "id" : 3,
+                "name" : "Ame",
+                "mobile" : "0933"
+            },
+            {
+                "id" : 4,
+                "name" : "Emily",
+                "mobile" : "0944"
+            },
+            {
+                "id" : 5,
+                "name" : "Alex",
+                "mobile" : "0955"
+            }
+        ];
+
+        console.log("data", data);
+        data.forEach(function (value) {
+            row_add += `
+                <tr>
+                    <td>${value.id}</td>
+                    <td>${value.name}</td>
+                    <td>${value.mobile}</td>
+                </tr>
+            `
+        });
+
+        console.log("row_add", row_add);
+        table1.innerHTML += row_add;
+
+        const table2 = document.getElementById("store_address");
+        console.log("table1", table1);
+        let data1 = [
+            {
+                "id" : "1",
+                "name" : "台北店",
+                "address" : "台北市" 
+            },
+
+            {
+                "id" : "2",
+                "name" : "台中店",
+                "address" : "台中市" 
+            },
+
+            {
+                "id" : "3",
+                "name" : "高雄店",
+                "address" : "高雄市" 
+            }
+        ];
+        console.log("data1", data1);
+
+        let values = ``;
+        data1.forEach(function (value, key) {
+            values += `
+                <tr>
+                    <td>${value.id}</td>
+                    <td>${value.name}</td>
+                    <td>${value.address}</td>
+                </tr>
+            `;
+        });
+
+        table2.innerHTML += values;
+        
+    </script>
+</body>
+</html>
