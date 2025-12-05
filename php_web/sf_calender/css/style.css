@@ -1,0 +1,142 @@
+*{
+    font-family:"monospace";
+    font-size: 24px;
+    box-sizing: border-box;
+    
+}
+
+body{
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 2, 92);
+    background-image: url(../img/SF2-Location-Template.png);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    margin:400px 0 0 400px;
+}
+
+.yearmonth{
+    width: 125px;
+    height: 60px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.calander{
+    width:45%;
+    height: 90vh;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 日格子 */
+.box_day{
+    width: 119px;
+    height: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.4s;
+    background-color: rgb(116, 201, 253);
+}
+
+.box_week{
+    width: 119px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.4s;
+    background-color: rgb(116, 201, 253);
+}
+
+.cal-row{
+    /* border: 1px solid black; */
+    width: 843px;
+    height: 85px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -1px;
+}
+
+.cal-row>form{
+ color:aliceblue;
+}
+
+.box_week:hover,
+.box_day:hover,
+.yearmonth:hover {
+    background-color: lightblue;
+}
+
+.next_prev{
+    width: 145px;
+    height: 50px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: gray;      
+}
+
+.next_prev>a{
+    text-decoration: none;
+    color: lightblue;
+    transition: color 0.3s;
+}
+
+.next_prev>a:hover{
+    color: yellow;
+}
+
+.box_day:active{
+    background-color: royalblue;
+}
+
+
+.color{
+    background-color: lightcoral;
+}
+
+.today_color{
+    background-color: lightseagreen;
+}
+
+.text_gray{
+    color: lightgray;
+}
+
+.tools{
+    margin: 30px 0 0 100px;
+    border: 1px solid black;
+    width: 400px;
+    height:233px;
+    color:aliceblue;
+}
+
+.characters{
+    width:90%;
+    height:800px;
+    /* background-color: aqua; */
+    position: fixed;
+    /* top:0px; */
+    /* left:0px; */
+    background-repeat: no-repeat;
+    background-image: url(../img/tuesday.png);
+    z-index: 1;
+    background-size: 30%;
+}
