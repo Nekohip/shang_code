@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 50%;
+    height: 600px;
+    border: 1px solid black;
+    margin: auto;
+    
+}
+
+.container>form {
+    display: flex;
+    flex-direction: column;
+}
