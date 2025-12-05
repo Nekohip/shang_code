@@ -41,9 +41,11 @@
 
     <h2>PHP連結database</h2>
     <a href="./database_link/db.php">連結表單</a><br>
-    <a href="./database_link/reg.php">註冊</a><br>
-    <a href="./database_link/login.php">登入</a><br>
+    <a href="./database_link/members/register.php">註冊</a><br>
+    <a href="./database_link/members/login.php">登入</a><br>
     <a href="./database_link/finance/form_expense.php">記帳表單</a><br>
+    <a href="./teacher/members/login.php">老師的登入</a><br>
+    <a href="./teacher/finance/form_expense.php">老師的記帳表單</a><br>
 
 
     <h2>練習get/post</h2>
