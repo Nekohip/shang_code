@@ -14,5 +14,6 @@ echo $sql;
 //執行sql語法，資料加進資料庫
 $pdo->exec($sql);
 echo "註冊成功";
-
+//重新導向登入頁面
+header("location:login.php");
 ?>
