@@ -10,29 +10,55 @@
     <div class="container">
         <h2>會員註冊</h2>
         <form action="create_acc.php" method="post">
-            <label for="account">帳號:</label>
-            <input type="text" id="account" name="account" required>
+            <div class="input_bar">
+                <label for="account">帳號:</label>
+                <input type="text" id="account" name="account" required>
+            </div>
 
-            <label for="account">密碼:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="input_bar">
+                <label for="password">密碼:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
 
-            <label for="account">姓名:</label>
-            <input type="text" id="name" name="name" required>
+            <div class="input_bar">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
 
-            <label for="account">電話:</label>
-            <input type="text" id="tel" name="tel" required>
+            <div class="input_bar">
+                <label for="tel">電話:</label>
+                <input type="tel" id="tel" name="tel" required>
+            </div>
 
-            <label for="account">地址:</label>
-            <input type="text" id="address" name="address" required>
+            <div class="input_bar">
+                <label for="address">地址:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
 
-            <label for="account">身分證字號:</label>
-            <input type="text" id="national_id" name="national_id" required>
+            <div class="input_bar">
+                <label for="national_id">身分證字號:</label>
+                <input type="text" id="national_id" name="national_id" required>
+            </div>
 
-            <label for="account">電子信箱:</label>
-            <input type="text" id="email" name="email" required>
+            <div class="input_bar">
+                <label for="email">電子信箱:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
 
-            <label for="account">郵遞區號:</label>
-            <input type="text" id="post_code" name="post_code" required>
+            <div class="input_bar">
+                <label for="post_code">郵遞區號:</label>
+                <input type="text" id="post_code" name="post_code" required>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" value="註冊">
+                <input type="reset" value="重置">
+            </div>
+
+            <div class="input_bar">
+                <label for="post_code">test:</label>
+                <input type="time" id="post_code" name="post_code" required><div class="input_bar">
+            </div>
         </form>
     </div>
 </body>
