@@ -47,6 +47,9 @@
     <a href="./teacher/members/login.php">老師的登入</a><br>
     <a href="./teacher/finance/form_expense.php">老師的記帳表單</a><br>
 
+    <h2>Function</h2>
+    <a href="./function.php">Function練習</a><br>
+
 
     <h2>練習get/post</h2>
     <a href="./practice/practice_getpost1.php">前往</a>
