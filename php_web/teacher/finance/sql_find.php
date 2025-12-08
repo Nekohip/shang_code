@@ -11,7 +11,8 @@ function find($table='daily_account',$id=[],$desc=' ORDER BY `id` ASC'){
         $sql .= " WHERE `id` IN (".join(", ", $id).")" ;
         //WHERE `key1`='value1' && `key2`='value2'...
         
-    }else if(is_string($id) && !empty($id)){
+    }
+    else if(is_string($id) && !empty($id)){
           $sql .= "WHERE `id` = '$id'";
     }
 
@@ -21,7 +22,8 @@ function find($table='daily_account',$id=[],$desc=' ORDER BY `id` ASC'){
     echo $sql;
     echo "<hr>";
     
-    $rows=$pdo->query($sql)->fetchALL(PDO::FETCH_ASSOC);
+    // $rows=$pdo->query($sql)->fetchALL(PDO::FETCH_ASSOC);
+    $rows=$pdo->query($sql)->fetch(PDO::FETCH_NUM);
     
     return $rows;
 }

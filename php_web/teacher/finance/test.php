@@ -10,8 +10,12 @@ foreach($rows as $r){
 }
 echo "<hr>";
 
-$rows = find('daily_account',[1,2,3,4]);
+$rows = find('daily_account',"3");
+echo "<pre>";
+    print_r($rows);
+echo "</pre>";
+
 foreach($rows as $r){
-    echo $r['id'].'. '.$r['item'].'<br>';
+    echo $r.'&emsp;';
 }
 ?>
