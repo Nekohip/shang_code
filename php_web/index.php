@@ -18,8 +18,8 @@
         <li>建立一個可以輸入帳號和密碼的表單畫面</li>
         <li>輸入帳號密碼，按下"登入"按鈕後，在另一個頁面顯示帳號密碼是否正確。</li>
         <a href="./login/login.php">前往</a><br>
-        <a href="./teacher/login/login.php">老師寫的</a><br>
-        <a href="./teacher/login/login_cookie.php">老師寫的(cookie)</a>
+        <a href="./teacher/login/login.php">登入檢查(T)</a><br>
+        <a href="./teacher/login/login_cookie.php">登入檢查(T, cookie)</a>
     </ul>
 
     <h2>設計一個網頁版萬年曆，只需顯示西元年月日</h2>
@@ -31,25 +31,26 @@
         <a href="./calender/clandar_homework.php">作業</a><br>
         <a href="./calender2/clandar_homework.php">作業(無版權)</a><br>
         <a href="./calender/clandar_homework2.php">作業測試</a><br>
-        <a href="./teacher/calendar.php">老師寫的</a>
+        <a href="./teacher/calendar.php">萬年曆(T)</a>
     </ul>
 
     <h2>檔案分割</h2>
-    <a href="./teacher/div/index.php">老師寫的(get)</a><br>
-    <a href="./teacher/div2/index.php">老師寫的(檔名判斷)</a><br>
-    <a href="./include_div/index.php">我改老師寫的</a>
+    <a href="./teacher/div/index.php">檔案分割(T,get)</a><br>
+    <a href="./teacher/div2/index.php">檔案分割(T,檔名判斷)</a><br>
+    <a href="./include_div/index.php">檔案分割(T改)</a>
 
     <h2>PHP連結database</h2>
     <a href="./database_link/members/register.php">註冊</a><br>
     <a href="./database_link/members/login.php">登入</a><br>
     <a href="./database_link/finance/form_expense.php">記帳表單</a><br>
-    <a href="./teacher/members/reg.php">老師的註冊</a><br>
-    <a href="./teacher/members/login.php">老師的登入</a><br>
-    <a href="./teacher/finance/form_expense.php">老師的記帳表單</a><br>
+    <a href="./teacher/members/reg.php">註冊(T)</a><br>
+    <a href="./teacher/members/login.php">登入(T)</a><br>
+    <a href="./teacher/finance/form_expense.php">記帳表單(T)</a><br>
 
     <h2>Function</h2>
     <a href="./function.php">Function練習</a><br>
-
+    <a href="./teacher/finance/test.php">表單查詢(T)</a><br>
+    
 
     <h2>練習get/post</h2>
     <a href="./practice/practice_getpost1.php">前往</a>
