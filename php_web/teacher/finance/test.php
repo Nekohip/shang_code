@@ -10,7 +10,7 @@ foreach($rows as $r){
 }
 echo "<hr>";
 
-$rows = find('daily_account',"3");
+$rows = find('daily_account', [10]);
 echo "<pre>";
     print_r($rows);
 echo "</pre>";
