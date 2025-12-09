@@ -8,7 +8,12 @@ function find($table='daily_account',$id=[],$desc=' ORDER BY `id` ASC'){
     $sql="SELECT * FROM $table ";
     if(is_array($id) && count($id)>0){
         //將key=>value結構轉換成`key`='value'
-        $sql .= " WHERE `id` IN (".join(", ", $id).")" ;
+        foreach($id as $key => $value)
+        {
+            //WHERE `id` IN ('1', '2', '3')
+            $tmp[] = "$value";
+        }
+        $sql .= " WHERE `id` IN (" . join(" , ",$tmp) . ")"  ;
         //WHERE `key1`='value1' && `key2`='value2'...
         
     }
@@ -23,7 +28,7 @@ function find($table='daily_account',$id=[],$desc=' ORDER BY `id` ASC'){
     echo "<hr>";
     
     // $rows=$pdo->query($sql)->fetchALL(PDO::FETCH_ASSOC);
-    $rows=$pdo->query($sql)->fetch(PDO::FETCH_NUM);
+    $rows=$pdo->query($sql)->fetchALL(PDO::FETCH_ASSOC);
     
     return $rows;
 }
