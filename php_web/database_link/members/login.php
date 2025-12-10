@@ -6,6 +6,16 @@
     <title>登入</title>
 </head>
 <body>
-    登入
+    <form action="login_chk.php">
+        <div class="account_div">
+           <label for="account">帳號</label>
+           <input type="text" name="account" id="account">
+        </div>
+        
+        <div class="account_div">
+           <label for="account">帳號</label>
+           <input type="text" name="account" id="account">
+        </div>
+    </form>
 </body>
 </html>
