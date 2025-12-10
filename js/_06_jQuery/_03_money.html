@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
@@ -81,29 +81,36 @@
         </div>
     </div>
     <script>
-        let houseInput = document.getElementById("house");
-        let lifeInput = document.getElementById("life");
-        let utilityInput = document.getElementById("utility");
-        let trafficInput = document.getElementById("traffic");a
-        let insuranceInput = document.getElementById("insurance");
-        let calcBtn = document.getElementById("calc");
-        let mTotalSpan = document.getElementById("monthlyTotal");
-        let aTotalSpan = document.getElementById("annualTotal");
+        $(document).ready(function() {
+            const houseInput = $("#house");
+            const lifeInput = $("#life");
+            const utilityInput = $("#utility");
+            const trafficInput = $("#traffic");
+            const insuranceInput = $("#insurance");
 
-        calcBtn.addEventListener("click", function() 
-        {
-            let houseValue = Number(houseInput.value);
-            let lifeValue = Number(lifeInput.value);
-            let utilityValue = Number(utilityInput.value);
-            let trafficValue = Number(trafficInput.value);
-            let insuranceValue = Number(insuranceInput.value);
+            const calcBtn = $("#calc");
 
-            let monthlyTotal = houseValue + lifeValue + utilityValue + trafficValue + insuranceValue;
-            let annualTotal = monthlyTotal * 12;
+            const mTotalSpan = $("#monthlyTotal");
+            const aTotalSpan = $("#annualTotal");
 
-            mTotalSpan.innerText = monthlyTotal;
-            aTotalSpan.innerText = annualTotal;
-        })
+            
+            calcBtn.click(function() 
+            {
+                let houseValue = Number(houseInput.val());
+                let lifeValue = Number(lifeInput.val());
+                let utilityValue = Number(utilityInput.val());
+                let trafficValue = Number(trafficInput.val());
+                let insuranceValue = Number(insuranceInput.val());
+
+                let monthlyTotal = houseValue + lifeValue + utilityValue + trafficValue + insuranceValue;
+                let annualTotal = monthlyTotal * 12;
+
+                mTotalSpan.text(monthlyTotal);
+                aTotalSpan.text(annualTotal);
+            });
+        });
+        
+
     </script>
 </body>
 </html>

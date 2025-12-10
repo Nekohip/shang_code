@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Light Control</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* 外殼容器 */
+        .container {
+            background: #2b2b2b;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 60px #171717, -20px -20px 60px #3f3f3f;
+            text-align: center;
+            border: 1px solid #444;
+        }
+
+        /* 燈光主體 */
+        .light {
+            width: 200px;
+            height: 200px;
+            background-color: #0f0f0f;
+            border-radius: 50%;
+            margin: 0 auto 40px auto;
+            position: relative;
+            box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.9),
+                inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+                0 0 0 10px #222;
+            transition: all 0.3s ease;
+        }
+
+        /* 按鈕區域 */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: transparent;
+            width: auto;
+            height: auto;
+            margin-top: 0;
+        }
+
+        /* 按鈕通用樣式 */
+        .btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.3s;
+            position: relative;
+            outline: none;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* 各種顏色定義 */
+        .btn1 {
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #800000);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+
+        .btn2 {
+            background: radial-gradient(circle at 30% 30%, #ffe66d, #807000);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn3 {
+            background: radial-gradient(circle at 30% 30%, #6bff95, #006400);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+        }
+
+        /* 激活狀態的樣式 */
+        .light-color1 {
+            background-color: #ff3333;
+            box-shadow: 0 0 30px #ff0000,
+                0 0 60px #ff0000,
+                inset 0 0 20px #ffbbbb;
+            animation: pulse-red 1.5s infinite alternate, pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .light-color2 {
+            background-color: #ffeb3b;
+            box-shadow: 0 0 30px #ffd700,
+                0 0 60px #ffaa00,
+                inset 0 0 20px #ffffe0;
+            animation: pulse-yellow 1.5s infinite alternate, pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .light-color3 {
+            background-color: #33ff33;
+            box-shadow: 0 0 30px #00ff00,
+                0 0 60px #00ff00,
+                inset 0 0 20px #ccffcc;
+            animation: pulse-green 1.5s infinite alternate, pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* 動畫 Keyframes */
+        @keyframes pop-in {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse-red {
+            from {
+                box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, inset 0 0 10px #ffbbbb;
+            }
+
+            to {
+                box-shadow: 0 0 40px #ff0000, 0 0 80px #ff0000, inset 0 0 30px #ffffff;
+            }
+        }
+
+        @keyframes pulse-yellow {
+            from {
+                box-shadow: 0 0 20px #ffaa00, 0 0 40px #ffd700, inset 0 0 10px #ffffe0;
+            }
+
+            to {
+                box-shadow: 0 0 40px #ffaa00, 0 0 80px #ffd700, inset 0 0 30px #ffffff;
+            }
+        }
+
+        @keyframes pulse-green {
+            from {
+                box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, inset 0 0 10px #ccffcc;
+            }
+
+            to {
+                box-shadow: 0 0 40px #00ff00, 0 0 80px #00ff00, inset 0 0 30px #ffffff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="light"></div>
+
+        <div class="buttons">
+            <button class="btn btn1"></button>
+            <button class="btn btn2"></button>
+            <button class="btn btn3"></button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // 先獲取元素
+            const light = $(".light");
+            const btn1 = $(".btn1");
+            const btn2 = $(".btn2");
+            const btn3 = $(".btn3");
+
+            // 定義一個通用的重置動畫函數
+            function changeLight(colorClass) {
+                // 移除所有顏色相關的 class
+                light.removeClass("light-color1 light-color2 light-color3");
+
+                // 強制瀏覽器重繪 (Reflow) 以重啟動畫
+                // 訪問 offsetWidth 會強制瀏覽器計算佈局，這是重啟 CSS animation 的常見技巧
+                void light[0].offsetWidth;
+
+                // 添加新的顏色 class
+                light.addClass(colorClass);
+            }
+
+            btn1.click(function () {
+                changeLight("light-color1");
+            });
+
+            btn2.click(function () {
+                changeLight("light-color2");
+            });
+
+            btn3.click(function () {
+                changeLight("light-color3");
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+
+        .btn {
+            width: 300px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+
+        .bg-yellow {
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <p>點我消失</p>
+    <p>點我消失</p>
+    <p>點我消失</p>
+    <p>點我消失</p>
+    <p>點我消失</p>
+
+    <div class="box">
+    </div>
+
+    <div class="btn">
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        $("p").click(function() {
+            $(this).hide();
+        });
+
+        const box = $(".box");
+        const btn = $(".btn");
+
+        console.log("box", box);
+        console.log("btn", btn);
+
+        btn.click(function () {
+            console.log("jquery btn ok");
+            box.attr("class", "box bg-yellow");
+
+        });
+    });
+</script>
+</html>
