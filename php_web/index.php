@@ -42,10 +42,10 @@
     <h2>PHP連結database</h2>
     <a href="./database_link/members/register.php">註冊</a><br>
     <a href="./database_link/members/login.php">登入</a><br>
-    <a href="./database_link/finance/form_expense.php">記帳表單</a><br>
+    <a href="./database_link/finance/form_expense.php">記帳(新增表單)</a><br>
     <a href="./teacher/members/reg.php">註冊(T)</a><br>
     <a href="./teacher/members/login.php">登入(T)</a><br>
-    <a href="./teacher/finance_function/index.php">記帳(T)</a><br>
+    <a href="./teacher/finance_function/index.php">記帳程式(T)</a><br>
 
     <h2>Function</h2>
     <a href="./function.php">Function練習</a><br>

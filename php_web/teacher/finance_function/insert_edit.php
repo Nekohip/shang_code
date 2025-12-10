@@ -1,5 +1,5 @@
 <?php
+include_once "sql.php";
 update('daily_account',$_POST);
-$pdo->exec($sql);
-// header("location:index.php");
+header("location:index.php");
 ?>

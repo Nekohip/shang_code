@@ -56,10 +56,6 @@
                     <input type="reset" value="重置">
                 </div>
 
-                <div class="input_bar">
-                    <label for="post_code">test:</label>
-                    <input type="time" id="post_code" name="post_code" required><div class="input_bar">
-                </div>
             </form>
         </div>
     </div>
