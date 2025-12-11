@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定期定額</title>
+</head>
+
+<style>
+    .container-top {
+        width: 30%;
+        height: 30vh;
+        background-color: lightblue;
+        margin: auto;
+        margin-top: 20px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-bottom {
+        width: 30%;
+        /* height: 10vh; */
+        background-color: lightblue;
+        margin: auto;
+        margin-top: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .text-red {
+        color: red;
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<body>
+    <h3>定期定額未來值計算</h3>
+    <div class="container-top container-s2-input">
+        <p>
+            <label for="moneyS2">定期金額 元:</label>
+            <input type="number" name="" id="moneyS2"> 
+        </p>           
+        <p>
+            <label for="yearS2">投資時間 年:</label>
+            <input type="number" name="" id="yearS2"> 
+        </p>           
+        <p>
+            <label for="rateS2">投資利率 %:</label>
+            <input type="number" name="" id="rateS2"> 
+        </p>           
+        <p>
+            <input type="submit" value="定期定額計算" id="btnS2"> 
+        </p>           
+    </div>
+
+    <div class="container-bottom container-s2-output">
+        <div id="resultS2">
+            <!-- 1. 100元<br>
+            2. 110元<br> -->
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        const moneyS2 = $("#moneyS2");
+        const yearS2 = $("#yearS2");
+        const rateS2 = $("#rateS2");
+        const resultS2 = $("#resultS2");
+        const btnS2 = $("#btnS2");
+
+        console.log("moneyS2", moneyS2);
+        console.log("yearS2", yearS2);
+        console.log("rateS2", rateS2);
+        console.log("resultS2", resultS2);
+        console.log("btnS2", btnS2);
+        //每月投資
+        moneyS2.val(10000);
+        yearS2.val(7);
+        rateS2.val(10);
+
+        btnS2.click(function() {
+            console.log("btnS2 clicked");
+
+            let getMoneyS2 = Number(moneyS2.val());
+            let getYearS2 = Number(yearS2.val());
+            let getRateS2 = Number(rateS2.val()) / 100;
+            let yearMoneyS2 = getMoneyS2 * 12;
+
+            console.log("getMoneyS2", getMoneyS2);
+            console.log("getyearS2", getYearS2);
+            console.log("getrateS2", getRateS2);
+
+            let sumS2 = 0;
+            let tmpText = ``;
+            tmpText += `每年投資${yearMoneyS2}元<br>`;
+            for(let i = 1; i <= getYearS2; i++)
+            {
+                tmpText += `第${i}年:`;
+
+                if(i == 1)
+                {
+                    sumS2 = yearMoneyS2 * (1 + getRateS2);
+                    //toFixed(0)四捨五入到小數點第0位
+                    tmpText += `${sumS2.toFixed(0)} 元<br>`;
+                }
+                else
+                {
+                    sumS2 = (sumS2 + yearMoneyS2) * (1 + getRateS2);
+                    tmpText += `${sumS2.toFixed(0)} 元<br>`;
+                }
+            }
+            console.log("tmpText", tmpText);
+            resultS2.html(tmpText);
+
+            let lastLine = `
+            <span class='text-red'>總投入金額 ${getYearS2}年：${(yearMoneyS2 * getYearS2).toFixed(0)} 元<br><br></span>
+            <span class='text-red'>總獲利：${sumS2.toFixed(0)} 元<br><br></span>
+            `;
+            resultS2.prepend(lastLine);
+        });
+    });
+</script>
+</html>

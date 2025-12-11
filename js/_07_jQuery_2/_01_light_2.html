@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light-2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .light {
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            margin: auto;
+        }
+
+        .buttons {
+            width: 300px;
+            height: 100px;
+            background-color: lightseagreen;
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .btn1, .btn2, .btn3 {
+            width: 50px;
+            height :50px;
+            border-radius: 10px;
+        }
+
+        .btn1 {
+            background-color: brown;
+        }
+        .btn2 {
+            background-color: lightgoldenrodyellow;
+        }
+        .btn3 {
+            background-color: greenyellow;
+        }
+
+        .btn1,
+        .light-color1 {
+            background-color: brown;
+            animation: out 0.5s ease-in-out;
+        }
+        .btn2,
+        .light-color2 {
+            background-color: lightgoldenrodyellow;
+            animation: out 0.5s ease-in-out;
+        }
+        .btn3,
+        .light-color3 {
+            background-color: greenyellow;
+            animation: out 0.5s ease-in-out;
+        }
+
+        .btn1:active{
+            border: 3px solid rgb(4, 0, 255);
+         }
+
+        .btn2:active{
+            border: 3px solid rgb(17, 0, 255);
+         }
+
+        .btn3:active{
+            border: 3px solid rgb(17, 0, 255);
+         }
+
+        @keyframes out {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="light">
+    </div>
+
+    <div class="buttons">
+        <div class="my-btns btn1" data-color="light-color1">
+        </div>
+
+        <div class="my-btns btn2" data-color="light-color2">
+        </div>
+
+        <div class="my-btns btn3" data-color="light-color3">
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        const light =  $(".light");
+        const btn1 =  $(".btn1");
+        const btn2 =  $(".btn2");
+        const btn3 =  $(".btn3");
+
+        const myBtns = $(".my-btns");
+
+        console.log("light", light);
+        console.log("btn1", btn1);
+        console.log("btn2", btn2);
+        console.log("btn3", btn3);
+
+        myBtns.click(function() {
+            light.removeClass("light-color1 light-color2 light-color3");
+            light[0].offsetWidth;
+
+            console.log("this", this);
+            console.log("$(this)", $(this));
+
+            //attr()沒有左邊參數，就會回傳字串，而不會在元素增加屬性
+            let getDataColor = $(this).attr("data-color");
+            console.log("getDataColor", getDataColor);
+            let tmpText = "light " + getDataColor;
+            light.attr("class", tmpText);
+        });
+
+    });
+</script>
+
+</html>
