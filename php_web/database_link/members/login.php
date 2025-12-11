@@ -7,14 +7,18 @@
 </head>
 <body>
     <form action="login_chk.php">
-        <div class="account_div">
+        <div class="input_bar">
            <label for="account">帳號</label>
            <input type="text" name="account" id="account">
         </div>
         
-        <div class="account_div">
-           <label for="account">帳號</label>
-           <input type="text" name="account" id="account">
+        <div class="input_bar">
+           <label for="account">密碼</label>
+           <input type="password" name="password" id="password">
+        </div>
+
+        <div class="button">
+            <input type="submit" value="登入">
         </div>
     </form>
 </body>
