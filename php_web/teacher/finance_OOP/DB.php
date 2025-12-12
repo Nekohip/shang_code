@@ -18,7 +18,7 @@ Class DB{
         $this->table=$table;
         $this->pdo=new PDO($this->dsn,'root','');
     }
-
+    //可變數量參數，可傳入多個參數
     public function all(...$arg){
 
         $sql="select * from `$this->table` ";
