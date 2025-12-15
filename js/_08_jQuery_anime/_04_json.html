@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <style>
+            table {
+                width: 70%;
+                margin: auto;
+                text-align: center;
+            }
+
+            table,td,th{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+</head>
+<body>
+    <table id="myTable">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Mobile</th>
+        </tr>
+    </table>
+</body>
+
+<script>
+    $(document).ready(function() {
+        let data = [
+            {
+                "id": 1,
+                "name": "Amy",
+                "mobile": "0911456789"
+            },
+            {
+                "id": 2,
+                "name": "Bob",
+                "mobile": "0922789456"
+            },
+            {
+                "id": 3,
+                "name": "Eric",
+                "mobile": "0933654987"
+            }
+        ]
+        console.log("data", data);
+        
+        const myTable = $("#myTable");
+        console.log("myTable", myTable);
+
+        let tempText = ``;
+        $.each(data, function(key, value) {
+            tempText += `
+                <tr>
+                    <td>${value.id}</td>
+                    <td>${value.name}</td>
+                    <td>${value.mobile}</td>
+                </tr>
+            `;
+        });
+        //.append()將字串加進元素內容尾端
+        myTable.append(tempText);
+    });
+</script>
+</html>

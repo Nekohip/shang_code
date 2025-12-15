@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodelist</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .container {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+        </div>
+
+        <div class="box">
+        </div>
+
+        <div class="box">
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        //屬性/元素被選取時類型是object(nodelist)，但有forEach方法，裡面包含所有有同屬性(元素)的元素(屬性)
+        const box = document.querySelectorAll(".box");
+        console.log("type of box", typeof box);
+        console.log("isArray(box)", Array.isArray(box));
+        //原生
+        box.forEach((item, index) => {
+            console.log("item", item);
+            console.log("index", index);
+        });
+        //JQ
+        $.each(box, function(key, value) {
+            console.log("key", key);
+            console.log("value", value);
+        });
+
+        const div = document.querySelectorAll("div");
+        console.log("type of div", typeof div);
+        console.log("isArray(div)", Array.isArray(div));
+
+        div.forEach((item, index) => {
+            console.log("item", item);
+            console.log("index", index);
+        });
+    });
+</script>
+</html>

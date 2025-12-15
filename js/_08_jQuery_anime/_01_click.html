@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hidden</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .container1, .container2 {
+            width: 100%;
+            display: flex;
+        }
+
+        .box1 {
+            width: 300px;
+            height :300px;
+            background-color: lightblue;
+        }
+
+        .btn1 {
+            width: 300px;
+            height :50px;
+            background-color: lightcoral;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .box2 {
+            width: 300px;
+            height :300px;
+            background-color: lightgreen;
+            margin-left: 20px;
+        }
+
+        .btn2 {
+            width: 300px;
+            height :50px;
+            background-color: lightcoral;
+            margin-top: 10px;
+            margin-left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .box3 {
+            width: 300px;
+            height :300px;
+            background-color: lightgrey;
+            margin-left: 20px;
+        }
+
+        .btn3 {
+            width: 300px;
+            height :50px;
+            background-color: lightcoral;
+            margin-top: 10px;
+            margin-left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .box4 {
+            width: 300px;
+            height :300px;
+            background-color: blue;
+        }
+
+        .btn4 {
+            width: 300px;
+            height :50px;
+            background-color: lightcoral;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .box5 {
+            width: 300px;
+            height :300px;
+            background-color: lightseagreen;
+            margin-left: 20px;
+        }
+
+        .btn5 {
+            width: 300px;
+            height :50px;
+            background-color: lightcoral;
+            margin-top: 10px;
+            margin-left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .bg-yellow {
+            background-color: yellow;
+        }
+
+        .bg-blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="c11">
+            <div class="btn1">
+                消失開關
+            </div>
+
+            <div class="box1">
+            </div>
+        </div>
+
+        <div class="c12">
+            <div class="btn2">
+                淡入開關
+            </div>
+
+            <div class="box2">
+            </div>
+        </div>
+
+        <div class="c13">
+            <div class="btn3">
+                捲動開關
+            </div>
+
+            <div class="box3">
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="c21">
+            <div class="btn4">
+                變色開關
+            </div>
+
+            <div class="box4">
+            </div>
+        </div>
+
+        <div class="c22">
+            <div class="btn5">
+                變長開關
+            </div>
+
+            <div class="box5">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        const box1 = $(".box1");
+        const btn1 = $(".btn1");
+    
+        btn1.click(function() {
+            console.log("jQuery btn1 clicked");
+        
+            box1.toggle();
+        });
+    
+        const box2 = $(".box2");
+        const btn2 = $(".btn2");
+    
+        btn2.click(function() {
+            console.log("jQuery btn2 clicked");
+        
+            box2.fadeToggle(300);
+        });
+    
+        const box3 = $(".box3");
+        const btn3 = $(".btn3");
+    
+        btn3.click(function() {
+            console.log("jQuery btn3 clicked");
+        
+            box3.slideToggle(500);
+        });
+    
+        const box4 = $(".box4");
+        const btn4 = $(".btn4");
+    
+        //flag
+        let isBlue = true;
+        let isHide = false;
+    
+        btn4.click(function() {
+            console.log("jQuery btn4 clicked");
+            
+            if(isHide)
+            {
+                box4.fadeIn(500);
+                isHide = false;
+                // return;
+            }
+            else
+            {
+                box4.fadeOut(500, function() {
+                    if(isBlue)
+                    {
+                        box4.attr("class", "box4 bg-yellow");
+                        isBlue = false;
+                    }
+                    else
+                    {
+                        box4.attr("class", "box4 bg-blue");
+                        isBlue = true;
+                    }
+                    isHide = true;
+                });
+            }
+        });
+
+        const box5 = $(".box5");
+        const btn5 = $(".btn5");
+
+        btn5.click(function() {
+            box5.animate({
+                height: "+=200px"
+            });
+        });
+    });
+</script>
+</html>
