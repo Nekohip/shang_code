@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetch</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="header">Fetch</h1>
+    <button onclick="getEvents()">載入活動</button>
+    <div class="title"></div>
+    <h4></h4>
+    <ul></ul>
+    
+</body>
+</html>
+<script>
+    /********************************************************
+    * 1.api網址  https://kktix.com/events.json
+    * 2.建FETCH請求及實質內容
+    * 3.建立回呼函式(call back function)來處理回應時的各項行為
+    * 4.建立錯誤處理
+    ********************************************************/
+
+function getEvents(){
+    //建立FETCH請求及實質內容
+fetch('https://kktix.com/events.json')
+.then(function(response){   //response是fetch()回傳的值
+    
+    //回傳是josn時
+    return response.json()
+    
+    //回傳是text時
+    //return response.text()
+
+})
+.then(function(data){   //data是response.json()回傳的值
+	
+    document.querySelector(".title").innerHTML=data.title
+    console.log(data)
+    let html=''
+    data.entry.forEach(function(event){
+       // console.log(event.author.name,event.title)
+        
+        html=html+`<li>
+                        <div>${event.title}</div>
+                        <div>${event.author.name}</div>
+                    </li>`
+    })
+
+    document.querySelector("ul").innerHTML=html
+
+})
+.catch(function(err){
+    //error
+})
+
+}
+
+    //建立回呼函式(call back function)來處理回應時的各項行為
+
+
+    //建立錯誤處理
+
+  </script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泰山網頁資訊管理中心</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  header{
+    width:100%;
+    height:100px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background-color: skyblue;
+  } 
+  
+  main{
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+  }
+#menu{
+    width:20%;
+    height:calc(100vh - 100px - 50px);
+}
+
+#menu .menu-item{
+    padding: 5px 15px;
+    margin:3px;
+    background-color:lightblue;
+}
+
+
+#content{
+    width:55%;
+    height:calc(100vh - 100px - 50px);
+    background-color: lightpink;
+}
+#image{
+    width:25%;
+    height:calc(100vh - 100px - 50px);
+    background-color: lightgreen;
+}
+
+
+  footer{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    position:fixed;
+    bottom:0;
+    background: #262626;
+    color: #fff;
+  }
+</style>
+
+</head>
+<body>
+<header></header>    
+
+<main>
+    <div id="menu">
+        <div class="menu-item">回首頁</div>
+        <div class="menu-item">更多消息</div>
+        <div class="menu-item">校園映像</div>
+    </div>
+    <div id="content">
+
+    </div>
+    <div id="image">
+
+    </div>
+</main>
+<footer>版權所有，盜用必究</footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</body>
+</html>
+<script>
+$.get("api/get_menus.php",function(menus){
+    let html='';
+    console.log(html)
+    let all=JSON.parse(menus)
+    let keys=Object.keys(all)
+    keys.forEach((key)=>{
+        html=html + `<div class="menu-item"><a href="${all[key]}">${key}</a></div>`
+        console.log(all[key])
+    })
+    $("#menu").html(html)
+    
+    
+})    
+</script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XMLHttpRequest</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="header">XMLHttpRequest</h1>
+
+    <div class="title"></div>
+    <h4></h4>
+    <ul>
+        <li>
+            <div></div>
+            <div></div>
+        </li>
+    </ul>
+
+</body>
+</html>
+<script>
+    /********************************************************
+    * 1.api網址  https://kktix.com/events.json
+    * 2.宣告一個XMLHttpRequest物件
+    * 3.建立請求的各項設定及實質內容
+    * 4.建立得到回應時的各項行為
+    * 5.送出請求
+    ********************************************************/
+
+    //宣告一個XMLHttpRequest物件
+    var xhr=new XMLHttpRequest
+
+    //建立請求的各項設定及實質內容
+    xhr.open('GET',"https://kktix.com/events.json",true);
+          
+
+    //建立得到回應時的各項設定及行為
+    //預設所有的請求都是”非同步“，避免瀏灠器有卡死，停住的狀況
+        xhr.onload=function(){  //處理回應
+            var type=xhr.getResponseHeader("Content-Type");
+            var status=xhr.status
+            var response=JSON.parse(xhr.responseText)
+            //document.getElementsByClassName('title')[0].innerHTML=response.title
+            document.querySelector(".title").innerHTML=response.title
+            console.log(response)
+            let html=''
+            response.entry.forEach(function(event){
+                console.log(event.author.name,event.title)
+              
+                html=html+`<li>
+                             <div>${event.title}</div>
+                             <div>${event.author.name}</div>
+                           </li>`
+            })
+
+            document.querySelector("ul").innerHTML=html
+        }
+
+           
+
+    //送出請求
+    xhr.send();
+    </script>

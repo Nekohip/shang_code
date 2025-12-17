@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泰山網頁資訊管理中心</title>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            background-color: skyblue;
+        }
+
+        main {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        #menu {
+            
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+
+    <main>
+        <div id="menu">
+            <div class="menu-item">回首頁</div>
+            <div class="menu-item">更多消息</div>
+            <div class="menu-item">校園映像</div>
+        </div>
+        <div id="content"></div>
+        <div id="image"></div>
+    </main>
+
+    <footer>版權所有</footer>
+</body>
+
+<script>
+//.get()和get_menus.php(api)拿選單
+$.get("api/get_menus.php" ,function (menus){
+    let html = '';
+    let all=JSON.parse(menus);
+    let keys = Object.keys(all);
+    keys.forEach((key) => {
+        console.log(key);
+    });
+    console.log(menus);
+});
+</script>
+</html>
