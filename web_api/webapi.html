@@ -54,7 +54,7 @@
 //.get()和get_menus.php(api)拿選單
 $.get("api/get_menus.php" ,function (menus){
     let html = '';
-    let all=JSON.parse(menus);
+    let all = JSON.parse(menus);
     let keys = Object.keys(all);
     keys.forEach((key) => {
         console.log(key);
