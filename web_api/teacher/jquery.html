@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+crossorigin="anonymous"></script>
+<body>
+    <h1 class="header">jQuery</h1>
+    <div class="title"></div>
+    <h4></h4>
+    <ul></ul>
+</body>
+
+<script>
+    //$.ajax
+    // $.ajax({
+    //         type: "get",
+    //         url: "https://kktix.com/events.json",
+    //         success:(response) => 
+    //         {
+    //             console.log(response)
+    //             $(".title").html(response.title);
+
+    //             $.each(response.entry, (idx, item) => 
+    //             {
+    //                 $("ul").append(`
+    //                 <li>
+    //                     <div>${item.title}</div>
+    //                     <div>${item.author.name}</div>
+    //                 </li>
+    //                 `);
+    //             });
+    //         }
+
+    //     });
+
+    //$.get()
+    $.get("https://kktix.com/events.json", (response)=>{
+        console.log(response);
+        $(".title").html(response.title);
+
+        $.each(response.entry,(idx,item)=>{
+             $("ul").append(`<li>
+                        <div>${item.title}</div>
+                        <div>${item.author.name}</div>
+                    </li>`);
+        });
+    });
+</script>
+</html>

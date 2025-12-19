@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>學生資料管理系統</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!---匯入要使用的函式庫--->
+    <script src="jquery-3.7.1.js"></script>
+    <style>
+      .class-list {
+        width: 85%;
+        padding: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin:0 auto;
+        border-bottom: 2px solid #ccc;
+      }
+      /*班級按鈕*/
+      .classroom {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .classroom:hover {
+        background-color: #e0e0e0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .student,.item {
+    display: flex;
+    width: 85%;
+    margin: 2px auto;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+}
+
+.student div,.item div {
+    width: 20%;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+  <h1 class="header">學生資料管理系統</h1>
+  <h2>班級列表</h2>
+  <div class="class-list">
+      <!---班級清單--->
+  </div>
+  <div class="list-header">
+      <!---學生清單--->
+      <div class="item">
+        <div>學號</div>
+        <div>座號</div>
+        <div>姓名</div>
+        <div>生日</div>
+        <div>主修</div>
+        <div>操作</div>
+      </div>
+  </div>
+  <div class="student-list">
+      <!---學生清單--->
+
+  </div>
+
+  
+</body>
+</html>
+<script>
+/************************************
+* 1.考慮觸發行為的事件
+* 2.建立監聽行為
+* 3.考慮是否需要代入參數
+* 4.是否會有回傳值？回傳值的功用及處理？
+* 5.是否需要更新畫面內容？更新畫面的方法？
+************************************/
+
+
+//新增資料的函式
+function create(){
+
+}
+
+//查詢資料的函式
+function query(){
+
+}
+
+getClassrooms();
+//取得班級清單的函式
+function getClassrooms(){
+  $.getJSON("./api/get_classrooms.php",function(classrooms){
+      console.log(classrooms);
+      let html="";
+      let keys=Object.keys(classrooms);
+      keys.forEach(function(code){
+          //onclick= 點擊時把執行getStudents()，傳入code
+          html+=`<div class="classroom" onclick="getStudents('${code}')">${classrooms[code]}</div>`;
+      });
+      $('.class-list').html(html);
+  })
+}
+
+//取得學生清單的函式
+function getStudents(class_code){
+  //$.getJSON(API,get請求,函式)
+  //class_code get到api，$.getJSON再回傳變數students
+  $.getJSON("./api/get_students.php",{class_code},(students)=>{
+      console.log(students);
+        // let student;
+        $('.student-list').html('');
+      $.each(students,(idx,student)=>{
+        student=`<div class="student">
+                      <div>${student.uni_id}</div>
+                      <div>${student.seat_num}</div>
+                      <div>${student.name}</div>
+                      <div>${student.birthday}</div>
+                      <div>${student.major}</div>
+                      <div>
+                          <button onclick="update()">編輯</button>
+                          <button onclick="del()">刪除</button>
+                      </div>
+                    </div>`;
+        $('.student-list').append(student);
+      })
+
+  })
+
+}
+
+//編輯資料的函式
+function update(){
+
+}
+
+//刪除資料的函式
+function del(){
+
+}
+
+</script>
