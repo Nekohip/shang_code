@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .container-input {
+            width: 20%;
+            background-color: lightblue;
+            margin: auto;
+            text-align: center;
+        }
+
+        .container-output {
+            width: 20%;
+            background-color: lightcoral;
+            margin: auto;
+            text-align: center;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .yellow {
+            background-color: yellow;   
+        }
+    </style>
+</head>
+<body>
+    <div class="container-input">
+        <form method="get" id="myForm">
+            <p>
+                <label for="num1"></label>
+                <input type="number" name="num1" id="num1" value="100">
+            </p>
+            <p>
+                <label for="opt"></label>
+                <select name="opt" id="opt">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </p>
+            <p>
+                <label for="num2"></label>
+                <input type="number" name="num2" id="num2" value="100">
+            </p>
+            
+            <p>
+                <button type="submit" id="btnCalc1" class="blue">計算</button>
+                <button type="submit" id="btnCalc2" class="green">計算</button>
+                <button type="submit" id="btnCalc3" class="yellow">計算</button>
+                <button type="submit" id="btnCalc4" class="red">計算</button>
+            </p>
+        </form>
+    </div>
+    <div class="container-output">
+        <h2>結果:<span id="result">0</span></h2>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function()
+    {
+        const num1 = $("#num1");
+        const num2 = $("#num2");
+        const result = $("#result");
+        const opt = $("#opt");
+        const btnCalc1 = $("#btnCalc1");
+        const btnCalc2 = $("#btnCalc2");
+        const btnCalc3 = $("#btnCalc3");
+        const btnCalc4 = $("#btnCalc4");
+        const myForm = $("#myForm");
+        const output = $(".container-output");
+
+        console.log("num1", num1);
+        console.log("num2", num2);
+        console.log("result", result);
+        console.log("opt", opt);
+        console.log("btnCalc1", btnCalc1);
+        console.log("btnCalc2", btnCalc2);
+        console.log("btnCalc3", btnCalc3);
+        console.log("btnCalc4", btnCalc4);
+        console.log("myForm", myForm);
+        console.log("output", output);
+        //.submit 表單被送出時做的事
+        $(myForm).submit(function(e)
+        {   
+            console.log("btnCalc1 clicked", btnCalc1);
+            //.preventDefault() 阻止元素發生默認行為，這裡是阻止表單用原本方式送出
+            e.preventDefault();
+            let url = "./php/result.php";
+            //.serialize() 表單資料轉成get格式(網址?右邊)
+            let formData = myForm.serialize();
+
+            $.ajax({
+                //傳出
+                type: "GET",
+                url: url,
+                data: formData,
+                //接收  
+                dataType: "json",  
+                success: function(res)
+                {
+                    console.log("res", res);
+                    result.text(res.textResult);
+                }
+            });
+        });
+
+        btnCalc1.click(function()
+        {
+            output.attr("class", "container-output blue");
+        });
+        btnCalc2.click(function()
+        {
+            output.attr("class", "container-output green");
+        });
+        btnCalc3.click(function()
+        {
+            output.attr("class", "container-output yellow");
+        });
+        btnCalc4.click(function()
+        {
+            output.attr("class", "container-output red");
+        });
+    });
+</script>
+</html>
