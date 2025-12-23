@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container-input {
+            margin: auto;
+            background-color: blue;
+            width: 40%;
+            height: 40vh;
+            padding-top: 6px;
+            border-radius: 10px;
+        }
+
+        .container-output {
+            margin: auto;
+            margin-top: 10px;
+            background-color: rgb(0, 255, 242);
+            width: 40%;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        
+        .bar-container {
+            width:100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .bar, .opt {
+            height: 50px;
+            font-size: 26px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .bar {
+            width: 200px;
+        }
+
+        .opt {
+            width: 100px;
+        }
+
+        .btn {
+            height: 50px;
+            width: 100px;
+            font-size: 26px;
+            border-radius: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-input">
+        <div class="bar-container">
+            <input type="number" name="num1" id="num1" value="100" class="bar">
+        </div>
+        <div class="bar-container">
+            <select name="opt" class="opt" id="opt">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">x</option>
+                <option value="/">÷</option>
+            </select>
+        </div>
+        <div class="bar-container">
+            <input type="number" name="num2" id="num2" value="100" class="bar">
+        </div>
+
+        <div class="bar-container">
+            <input type="submit" value="計算" class="btn" id="btn">
+        </div>
+    </div>
+
+    <div class="container-output">
+        <h2>計算結果:<span id="res">0</span></h2>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function()
+    {
+        const num1 = $("#num1");
+        const num2 = $("#num2");
+        const opt = $("#opt");
+        const btn = $("#btn");
+        const res = $("#res");
+        console.log("num1", num1);
+        console.log("num2", num2);
+        console.log("opt", opt);
+        console.log("btn", btn);
+
+       
+
+        let sum = ``;
+        btn.click(function()
+        {
+            let num1Val = Number(num1.val());
+            let num2Val = Number(num2.val());
+            let optVal = opt.val();
+            console.log("num1Val", num1Val);
+            console.log("num2Val", num2Val);
+            console.log("optVal", optVal);
+            switch(optVal)
+            {
+                case "+":
+                    sum = `${num1Val + num2Val}`;
+                    break;
+                case "-":
+                    sum = `${num1Val - num2Val}`;
+                    break;
+                case "*":
+                    sum = `${num1Val * num2Val}`;
+                    break;
+                case "/":
+                    sum = `${num1Val / num2Val}`;
+                    break;
+            }
+
+            console.log("sum", sum);
+            res.text(sum);
+        });
+    });
+</script>
+</html>

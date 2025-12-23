@@ -4,8 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0050</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            text-align: center;
+            margin: auto;
+        }
+
+        td,th {
+            border: 1px solid black;
+        }
+    </style>
+
 </head>
 <body>
-    
+    <table id="myTable">
+        <tr>
+            <td>ID</td>
+            <td>日期</td>
+            <td>開</td>
+            <td>高</td>
+            <td>收</td>
+            <td>低</td>
+        </tr>
+
+        <!-- <tr>
+            <td>1</td>
+            <td>2025-12-18</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr> -->
+    </table>
 </body>
+
+<script>
+    $(document).ready(function()
+        {
+            const myTable = $("#myTable");
+            const url = "./data/0050.json"
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "json",
+                success: function (res) {
+                    let tmpText = "";
+                    let data = res;
+                    $.each(data, function(key, value)
+                    {
+                        tmpText += `
+                        <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.time}</td>
+                            <td>${value.open.toFixed(2)}</td>
+                            <td>${value.high.toFixed(2)}</td>
+                            <td>${value.close.toFixed(2)}</td>
+                            <td>${value.low.toFixed(2)}</td>
+                        </tr>`;
+                    });
+
+                    myTable.append(tmpText);
+                }
+            });
+        }
+    );
+</script>
 </html>
