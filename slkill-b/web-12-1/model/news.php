@@ -1,14 +1,12 @@
-<div class="cent">新增標題區圖片</div>
+<div class="cent">新增最新消息</div>
 <hr>
 <form action="./api/insert.php?table=<?=$_GET['table'];?>" method="post" enctype="multipart/form-data">
     <table style="width:70%;margin:auto">
         <tr>
-            <td>標題區圖片</td>
-            <td><input type="file" name="img" id=""></td>
-        </tr>
-        <tr>
-            <td>標題區替代文字</td>
-            <td><input type="text" name="text" id=""></td>
+            <td>最新消息資料</td>
+            <td>
+                <textarea name="text" id="" style="width:75%;height:100px"></textarea>
+            </td>
         </tr>
         <tr>
             <td>
