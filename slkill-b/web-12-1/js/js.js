@@ -19,11 +19,12 @@ function lo(x)
 }
 function op(x,y,url)
 {
+	//$(x):jQuery選擇器 .fadeIn():淡入
 	$(x).fadeIn()
 	if(y)
-	$(y).fadeIn()
+		$(y).fadeIn();
 	if(y&&url)
-	$(y).load(url)
+		$(y).load(url);
 }
 function cl(x)
 {

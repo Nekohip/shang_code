@@ -10,13 +10,41 @@
                     <td width="7%">刪除</td>
                     <td></td>
                 </tr>
+
+                <?php
+                    $rows = $Title -> all();
+                    foreach($rows as $row):
+                ?>
+                <tr>
+                    <td width="45%">
+                        <img src="./upload/<?=$row['img'];?>" style="width:300px;height:30px;">
+                    </td>
+                    <td width="23%">
+                        <input type="text" value="<?=$row['text'];?>">
+                    </td>
+                    <td width="7%">
+                        <input type="radio" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?"checked":"";?>>
+                    </td>
+                    <td width="7%">
+                        <input type="checkbox" name="del" value="<?=$row['id'];?>">
+                    </td>
+                    <td>
+                        <input type="button" value="更新圖片" 
+                        onclick="op('#cover','#cvr','../model/update_<?=$do;?>.php?id=<?=$row['id'];?>')">
+                    </td>
+                </tr>
+                <?php
+                    endforeach;
+                ?>
             </tbody>
         </table>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
-                    <td width="200px"><input type="button"
-                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;view.php?do=title&#39;)" value="新增網站標題圖片">
+                    
+                    <td width="200px">
+                        <!-- 點擊時呼叫js.js方法op() -->
+                        <input type="button" onclick="op('#cover','#cvr','../model/<?=$do;?>.php')" value="新增網站標題圖片">
                     </td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                     </td>

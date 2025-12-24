@@ -79,7 +79,7 @@ Class DB{
 
     }
 
-    function delete($id){
+    function del($id){
         $sql="DELETE from `$this->table` ";
                 if(is_array($id)){
                     //多條件
@@ -103,6 +103,28 @@ Class DB{
 
         return $tmp;
     }
+
+    function count(...$arg)
+    {
+        $sql="select count(*) from `$this->table` ";
+        
+        if(isset($arg[0])){
+            if(is_array($arg[0])){
+                //多條件
+                $tmp=$this->arrayToSql($arg[0]);
+                $sql .= " where " . implode(" && ",$tmp);
+            }else{
+                //單條件
+                $sql .=$arg[0];
+            }
+        }
+
+        if(isset($arg[1])){
+            $sql .=$arg[1];
+        }
+        // echo $sql;
+        return $this->pdo->query($sql)->fetchColumn();
+    }
 }
 
 function q($sql){
@@ -110,7 +132,9 @@ function q($sql){
     return $pdo->query($sql)->fetchALL(PDO::FETCH_ASSOC);
 }
 
-
 function to($url){
     header("location:".$url);
 }
+
+$Title = new DB("title");
+$Ad=new DB('ad');
