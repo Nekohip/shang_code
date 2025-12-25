@@ -1,10 +1,11 @@
 <?php
 include_once "db.php";
-
+//此時?後是table=$do，從哪過來就會改到哪個table
 $table=$_GET['table'];
+//將$table變數名第一個字變大寫，傳來什麼就能呼叫它的DB物件方法
 $DB=${ucfirst($table)};
-
 $ids=[];
+//將傳過來要修改的欄位做成陣列，用$table判斷做成哪種
 switch($table){
     case "mvim":
     case "image":
@@ -14,6 +15,7 @@ switch($table){
         $ids=array_keys($_POST['acc']);
     default:
     //這行在修改動圖時會報錯
+    //取text的key做成陣列
         $ids=array_keys($_POST['text']);
     
 }

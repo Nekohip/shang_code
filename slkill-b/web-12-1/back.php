@@ -33,6 +33,7 @@ include "./api/db.php";
             <div id="lf" style="float:left;">
                 <div id="menuput" class="dbor">
                     <!--主選單放此-->
+                    <!-- 用href在網址後面加上get資料，判斷要切換成哪個php檔(back資料夾) -->
                     <span class="t botli">後台管理選單</span>
                     <a style="color:#000; font-size:13px; text-decoration:none;" href="?do=title">
                         <div class="mainmu">

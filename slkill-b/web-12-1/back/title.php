@@ -1,5 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">網站標題管理</p>
+    <!-- 後台操作表單，按下"修改確定"後會get table=title到api/edit.php(此時?後是do=title，$do是title) -->
     <form method="post" action="./api/edit.php?table=<?=$do;?>">
         <table width="100%">
             <tbody>
@@ -12,6 +13,7 @@
                 </tr>
                 <?php
                 $rows=$Title->all();
+                //用迴圈將資料庫的欄位做成表格
                 foreach($rows as $row):
                 ?>
                 <tr>

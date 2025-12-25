@@ -8,7 +8,8 @@ Class DB{
         $this->table=$table;
         $this->pdo=new PDO($this->dsn,'root','');
     }
-
+    //$arg是接在$sql後面的where判斷(where 欄位=值)
+    //單條件要寫where，多條件寫陣列如:[a, b, c...]
     public function all(...$arg){
 
         $sql="select * from `$this->table` ";
@@ -23,11 +24,22 @@ Class DB{
                     $sql .=$arg[0];
                 }
             }
-
+            //如果有第二個陣列就繼續接在後面
             if(isset($arg[1])){
                 $sql .=$arg[1];
             }
         // echo $sql;
+        //將所有被選資料的欄位做成二維陣列:
+        /*[
+            0 => [
+                  a => 1
+                  b => 2
+                  c => 3],
+            1 => [
+                  a => 1
+                  b => 2
+                  c => 3]...
+            ]*/
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
