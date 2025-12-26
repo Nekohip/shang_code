@@ -13,6 +13,10 @@
                 </tr>
                 <?php
                 $rows=$Title->all();
+                /* $rows=[0 => [id => ,img => ,text => , sh => ],
+                          1 => [id => ,img => ,text => , sh => ],
+                          2 => ...
+                            ] */
                 //用迴圈將資料庫的欄位做成表格
                 foreach($rows as $row):
                 ?>
@@ -21,6 +25,7 @@
                         <img src="./upload/<?=$row['img'];?>" style="width:300px;height:30px;">
                     </td>
                     <td width="23%">
+                        <!-- name = text[0](id多少key就多少)  value = row["text"]的內容 -->
                         <input type="text" name='text[<?=$row['id'];?>]' value="<?=$row['text'];?>">
                     </td>
                     <td width="7%">
