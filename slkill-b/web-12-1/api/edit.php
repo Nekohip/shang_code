@@ -20,6 +20,7 @@ switch($table){
     
 }
 
+
 foreach($ids as $id){
     if(!empty($_POST['del']) && in_array($id,$_POST['del'])){
             $DB->del($id);
@@ -34,15 +35,15 @@ foreach($ids as $id){
             case "menu":
                 $row['text']=$_POST['text'][$id];
                 $row['href']=$_POST['href'][$id];
-                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0; 
+                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
             break;
             case "mvim":
             case "image":
-                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0; 
+                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
             break;
             case "title":
                 $row['text']=$_POST['text'][$id];
-                $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0; 
+                $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0;
             break;
             default:
                 $row['text']=$_POST['text'][$id];
