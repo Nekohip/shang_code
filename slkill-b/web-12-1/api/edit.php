@@ -15,18 +15,22 @@ switch($table){
         $ids=array_keys($_POST['acc']);
     default:
     //這行在修改動圖時會報錯
-    //取text的key做成陣列
+    //取text的key做成陣列[0,1,2,3...]
         $ids=array_keys($_POST['text']);
     
 }
 
 
 foreach($ids as $id){
+    //判斷post有沒有del
     if(!empty($_POST['del']) && in_array($id,$_POST['del'])){
             $DB->del($id);
     }else{
+        //從id0開始一筆一筆取
         $row=$DB->find($id);
-
+        //row結構:[id => 0, text => "abc", sh => "0"]
+        //POST結構:[text => ["fds", "xcv", "rre"],
+        //         sh => ""]
         switch($table){
             case "admin":
                 $row['acc']=$_POST['acc'][$id];
@@ -42,7 +46,9 @@ foreach($ids as $id){
                 $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
             break;
             case "title":
+                //用post到的value修改取得的資料欄位(value)
                 $row['text']=$_POST['text'][$id];
+                //比對$_POST['sh'](被選會送該id來)和$id一一比對，post過來id的改1，其他都設0
                 $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0;
             break;
             default:
@@ -50,7 +56,7 @@ foreach($ids as $id){
                 $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0; 
             break;
         }
-
+        //儲存
         $DB->save($row);
     }
 }

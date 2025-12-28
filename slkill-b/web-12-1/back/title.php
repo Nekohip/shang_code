@@ -29,6 +29,7 @@
                         <input type="text" name='text[<?=$row['id'];?>]' value="<?=$row['text'];?>">
                     </td>
                     <td width="7%">
+                        <!-- 被選得radio submit時會送value出去，所以是送id出去，且只有一個值[sh => "6"]，不是陣列 -->
                         <input type="radio" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?"checked":"";?>>
                     </td>
                     <td width="7%">

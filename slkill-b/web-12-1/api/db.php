@@ -42,7 +42,7 @@ Class DB{
             ]*/
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    //用id找單筆資料的所有欄位[a => 1, b => 2, c => 3]
     function find($id){
         $sql="select * from `$this->table` ";
                 if(is_array($id)){
