@@ -1,4 +1,5 @@
 <?php
+//一次編輯很多行
 include_once "db.php";
 //此時?後是table=$do，從哪過來就會改到哪個table
 $table=$_GET['table'];
