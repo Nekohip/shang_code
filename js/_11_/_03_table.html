@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-striped table-dark">
+            <thead >
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Mobile</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <tr>
+                    <!-- <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        let data = [
+            {id: 1, name: "Amy", mobile: "0911"},
+            {id: 2, name: "Eric", mobile: "0922"},
+            {id: 3, name: "Vincent", mobile: "0933"},
+            {id: 4, name: "Juri", mobile: "0944"},
+            {id: 5, name: "Emily", mobile: "0955"},
+            {id: 6, name: "Betty", mobile: "0966"},
+            {id: 7, name: "Fury", mobile: "0977"}
+        ];
+        console.log("data", data);
+        const myTbody = $("#myTbody");
+        console.log("myTbody", myTbody);
+
+        let tmpText = ``;
+        $.each(data, function(key, value){
+            tmpText += `
+            <tr class="table-danger">
+                <td>${value.id}</td>
+                <td>${value.name}</td>
+                <td>${value.mobile}</td>
+            </tr>
+            `;
+        });
+        myTbody.append(tmpText);
+    }); 
+
+    
+</script>
+</html>
