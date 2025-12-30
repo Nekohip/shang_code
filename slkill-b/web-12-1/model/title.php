@@ -19,3 +19,15 @@
         </tr>
     </table>
 </form>
+
+<!-- 
+post [img => , text => "123"]
+get [table => "title"]
+file [img => 
+    [
+        name => "01B02.jpg",
+        tmp_name => "./xxx/xxx/xxx"
+        ]
+
+    ] 
+-->

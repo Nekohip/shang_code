@@ -26,7 +26,7 @@
                     </td>
                     <td>
                         <input type="button" value="更換圖片" 
-                            onclick="op('#cover','#cvr','./model/update_<?=$do;?>.php?id=<?=$row['id'];?>')">
+                            onclick="op('#cover','#cvr','./model/update_<?=$do;?>.php?table=<?=$do;?>&id=<?=$row['id'];?>')">
                     </td>
                 </tr>
                 <?php

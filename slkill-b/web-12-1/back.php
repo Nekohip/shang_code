@@ -95,8 +95,8 @@ include "./api/db.php";
                 </table>
 			<!-- 用get判斷此區塊要顯示哪個檔案的網頁 -->
 			<?php
-			    // $do = (isset($_GET["do"])) ? $_GET["do"] : "title";
-			    $do = $_GET["do"] ?? "title";
+			    $do = (isset($_GET["do"])) ? $_GET["do"] : "title";
+			    // $do = $_GET["do"] ?? "title"; 
 			    $file = "./back/" . $do . ".php";
     
 			    if(file_exists($file))

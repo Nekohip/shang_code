@@ -13,6 +13,7 @@ switch($table){
     break;
     case "admin":
         $ids=array_keys($_POST['acc']);
+        break;
     default:
     //這行在修改動圖時會報錯
     //取text的key做成陣列[0,1,2,3...]
@@ -30,7 +31,7 @@ foreach($ids as $id){
         $row=$DB->find($id);
         //row結構:[id => 0, text => "abc", sh => "0"]
         //POST結構:[text => ["fds", "xcv", "rre"],
-        //         sh => ""]
+        //         sh => "4"]
         switch($table){
             case "admin":
                 $row['acc']=$_POST['acc'][$id];
@@ -53,6 +54,7 @@ foreach($ids as $id){
             break;
             default:
                 $row['text']=$_POST['text'][$id];
+                //in_array()比對$_POST['sh']裡有沒有id
                 $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0; 
             break;
         }
