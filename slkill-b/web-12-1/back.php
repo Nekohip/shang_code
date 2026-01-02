@@ -1,5 +1,9 @@
 ﻿<?php
 include "./api/db.php";
+if(!isset($_SESSION['admin'])){
+    to("login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -25,8 +29,11 @@ include "./api/db.php";
     </div>
     <iframe style="display:none;" name="back" id="back"></iframe>
     <div id="main">
-        <a title="" href="?">
-            <div class="ti" style="background:url(''); background-size:cover;"></div>
+        <?php 
+            $title=$Title->find(['sh'=>1]);
+        ?>
+        <a title="<?=$title['text'];?>" href="?">
+            <div class="ti" style="background:url('upload/<?=$title['img'];?>'); background-size:cover;"></div>
             <!--標題-->
         </a>
         <div id="ms">
@@ -76,7 +83,11 @@ include "./api/db.php";
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     <span class="t">進站總人數 :
-                        1 </span>
+                        <?php 
+                            $total=$Total->find(1);
+                            echo $total['total'];
+                        ?>
+                    </span>
                 </div>
             </div>
             <div class="di"

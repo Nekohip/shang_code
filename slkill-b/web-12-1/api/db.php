@@ -1,4 +1,5 @@
 <?php
+session_start();
 Class DB{
     private $dsn="mysql:host=localhost;dbname=db01;charset=utf8";
     private $table;
@@ -18,6 +19,7 @@ Class DB{
                 if(is_array($arg[0])){
                     //多條件
                     $tmp=$this->arrayToSql($arg[0]);
+                    //where `id`=`0` && `sh`=`1`...
                     $sql .= " where " . implode(" && ",$tmp);
                 }else{
                     //單條件
