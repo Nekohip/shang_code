@@ -13,8 +13,12 @@
                                     $total=$Image->count();
                                     $div=3;
                                     $pages=ceil($total/$div);
+                                    //p:第幾頁
                                     $now=$_GET['p']??1;
+                                    //p - 1 x div(3) = 從第幾張圖(id)開始顯示
+                                    //p=1 > 0,1,2 p=2 > 3,4,5 p=3 > 6,7,8
                                     $start=($now-1)*$div;
+                                    //設條件限制一頁有多少張圖片、從哪張開始
                                     $rows=$Image->all(" limit $start,$div");
                                 foreach($rows as $row):
                                 ?>
@@ -40,12 +44,14 @@
                             </tbody>
                         </table>
                         <div class="cent">
+                        <!-- 選頁功能 -->
                         <?php 
+                            //p>1才顯示左箭頭
                             if($now>1){
                                 $prev=$now-1;
                                 echo "<a href='?do=$do&p=$prev'> < </a>";
                             }
-                        
+                            
                             for($i=1;$i<=$pages;$i++){
                                 $size=($i==$now)?"24px":"16px";
                                 echo "<a href='?do=$do&p=$i' style='font-size:$size;'> $i </a>";
