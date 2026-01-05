@@ -30,4 +30,3 @@ if(!empty($_POST['new_text'])){
 }
 
 to("../back.php?do=menu");
-

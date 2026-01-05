@@ -3,7 +3,7 @@ $(document).ready(function(e) {
     $(".mainmu").mouseover(
 		function()
 		{
-			$(this).children(".mw").show()
+			$(this).children(".mw").stop().show()
 		}
 	)
 	$(".mainmu").mouseout(
@@ -21,10 +21,9 @@ function op(x,y,url)
 {
 	$(x).fadeIn()
 	if(y)
-		$(y).fadeIn()
+	$(y).fadeIn()
 	if(y&&url)
-		$(y).load(url)
-	
+	$(y).load(url)
 }
 function cl(x)
 {

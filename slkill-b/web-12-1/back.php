@@ -1,7 +1,7 @@
-﻿<?php
-include "./api/db.php";
+﻿<?php include_once "./api/db.php";
+
 if(!isset($_SESSION['admin'])){
-    to("login.php");
+    to("./index.php?do=login");
     exit();
 }
 ?>
@@ -23,16 +23,18 @@ if(!isset($_SESSION['admin'])){
     <div id="cover" style="display:none; ">
         <div id="coverr">
             <a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;"
-                onclick="cl('#cover')">X</a>
-            <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
+                onclick="cl(&#39;#cover&#39;)">X</a>
+            <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;">
+
+            </div>
         </div>
     </div>
-    <iframe style="display:none;" name="back" id="back"></iframe>
+
     <div id="main">
         <?php 
             $title=$Title->find(['sh'=>1]);
         ?>
-        <a title="<?=$title['text'];?>" href="?">
+        <a title="<?=$title['text'];?>" href="index.php">
             <div class="ti" style="background:url('upload/<?=$title['img'];?>'); background-size:cover;"></div>
             <!--標題-->
         </a>
@@ -83,10 +85,10 @@ if(!isset($_SESSION['admin'])){
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     <span class="t">進站總人數 :
-                        <?php 
-                            $total=$Total->find(1);
-                            echo $total['total'];
-                        ?>
+                    <?php 
+                        $total=$Total->find(1);
+                        echo $total['total'];
+                    ?>
                     </span>
                 </div>
             </div>
@@ -99,50 +101,46 @@ if(!isset($_SESSION['admin'])){
                             <td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;"
                                 class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a>
                             </td>
-                            <td><button onclick="document.cookie='user=';location.replace('?')"
+                            <td><button onclick="location.href='./api/logout.php'"
                                     style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
                         </tr>
                     </tbody>
                 </table>
-			<!-- 用get判斷此區塊要顯示哪個檔案的網頁 -->
-			<?php
-			    $do = (isset($_GET["do"])) ? $_GET["do"] : "title";
-			    // $do = $_GET["do"] ?? "title"; 
-			    $file = "./back/" . $do . ".php";
-    
-			    if(file_exists($file))
-                {
-                    include $file;
-                }
-                else
-                {
-                    include "./back/title.php";
-                }
-			?>
-                
-            <div id="alt"
-                style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
+                <!-- 用get判斷此區塊要顯示哪個檔案的網頁 -->
+					<?php 
+					/* if(isset($_GET['do'])){
+
+						$do=$_GET['do'];
+					}else{
+						$do="title";
+					} */
+					
+					//$do=(isset($_GET['do']))?$_GET['do']:"title";
+
+					$do=$_GET['do']??"title";
+					
+					$file="./back/".$do.".php";
+					
+					if(file_exists($file)){
+						include $file;
+					}else{
+						include "./back/title.php";
+					}
+
+					
+					?>
             </div>
-            <script>
-            $(".sswww").hover(
-                function() {
-                    $("#alt").html("" + $(this).children(".all").html() + "").css({
-                        "top": $(this).offset().top - 50
-                    })
-                    $("#alt").show()
-                }
-            )
-            $(".sswww").mouseout(
-                function() {
-                    $("#alt").hide()
-                }
-            )
-            </script>
+
         </div>
         <div style="clear:both;"></div>
         <div
             style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-            <span class="t" style="line-height:123px;"></span>
+            <span class="t" style="line-height:123px;">
+                <?php 
+                    $bottom=$Bottom->find(1);
+                    echo $bottom['bottom'];
+                ?>
+            </span>
         </div>
     </div>
 

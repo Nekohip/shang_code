@@ -1,5 +1,5 @@
 <?php
-//一次編輯很多行
+//edit.php:一次編輯很多行
 include_once "db.php";
 //此時?後是table=$do，從哪過來就會改到哪個table
 $table=$_GET['table'];
@@ -14,14 +14,13 @@ switch($table){
     break;
     case "admin":
         $ids=array_keys($_POST['acc']);
-        break;
+    break;
     default:
     //這行在修改動圖時會報錯
     //取text的key做成陣列[0,1,2,3...]
         $ids=array_keys($_POST['text']);
     
 }
-
 
 foreach($ids as $id){
     //判斷post有沒有del
@@ -41,17 +40,17 @@ foreach($ids as $id){
             case "menu":
                 $row['text']=$_POST['text'][$id];
                 $row['href']=$_POST['href'][$id];
-                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
+                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0; 
             break;
             case "mvim":
             case "image":
-                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
+                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0; 
             break;
             case "title":
                 //用post到的value修改取得的資料欄位(value)
                 $row['text']=$_POST['text'][$id];
                 //比對$_POST['sh'](被選會送該id來)和$id一一比對，post過來id的改1，其他都設0
-                $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0;
+                $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0; 
             break;
             default:
                 $row['text']=$_POST['text'][$id];
