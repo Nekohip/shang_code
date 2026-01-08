@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+    integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"
+        integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+    <div class="container mt-3" id="alertBox">
+        <h2>Add Alerts</h2>
+    </div>
+
+    <div class="container mt-3">
+        <h2>Button Styles</h2>
+        <button type="button" class="btn btn-success" id="btnOk">Success</button>
+        <button type="button" class="btn btn-danger" id="btnError">danger</button>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function(){
+        const alertbox = $("#alertBox");
+        const btnOk = $("#btnOk");
+        const btnError = $("#btnError");
+
+        console.log("alertbox", alertbox);
+        console.log("btnOk", btnOk);
+        console.log("btnError", btnError);
+
+        let okAlert = 
+        `<div class="alert alert-success">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> 你媽
+        </div>`;
+
+        let errorAlert = 
+        `<div class="alert alert-danger alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Danger!</strong> 你爸
+        </div>`;
+
+        btnOk.click(function(e){
+            console.log("btn ok");
+            alertbox.append(okAlert);
+        });
+
+        btnError.click(function(e){
+            console.log("btn error");
+            alertbox.append(errorAlert);
+        });
+
+    });
+</script>
+</html>
