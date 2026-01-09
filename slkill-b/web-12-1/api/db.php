@@ -33,12 +33,12 @@ Class DB{
                     $sql .= " where " . implode(" && ",$tmp);
                 }else{
                     //單條件
-                    $sql .=$arg[0];
+                    $sql .= $arg[0];
                 }
             }
             //如果有第二個陣列就繼續接在後面
             if(isset($arg[1])){
-                $sql .=$arg[1];
+                $sql .= $arg[1];
             }
         // echo $sql;
         //將所有被選資料的欄位做成二維陣列:
