@@ -16,53 +16,53 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 </head>
 <body>
     <div class="container mt-3" id="alertBox">
-        <h2>Add Alerts</h2>
+        <h2>Alert Here</h2>
+        
     </div>
 
     <div class="container mt-3">
-        <h2>Button Styles</h2>
-        <button type="button" class="btn btn-success" id="btnOk">Success</button>
-        <button type="button" class="btn btn-danger" id="btnError">danger</button>
+        <button type="button" class="btn btn-success" data-name="blue" id="btnOk">Success</button>
+        <button type="button" class="btn btn-danger" data-name="yellow" id="btnDan">Danger</button>
     </div>
 </body>
-
 <script>
     $(document).ready(function(){
-        const alertbox = $("#alertBox");
+        const alertBox = $("#alertBox");
         const btnOk = $("#btnOk");
-        const btnError = $("#btnError");
+        const btnDan = $("#btnDan");
 
-        console.log("alertbox", alertbox);
+        console.log("alertBox", alertBox);
         console.log("btnOk", btnOk);
-        console.log("btnError", btnError);
-
-        let okAlert = 
-        `<div class="alert alert-success" alert-dismissible">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>Success!</strong> 你媽
-        </div>`;
-
-        let errorAlert = 
-        //alert-danger紅色 alert-dismissible可消失
-        `<div class="alert alert-danger alert-dismissible">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>Danger!</strong> 你爸
-        </div>`;
+        console.log("btnDan", btnDan);
 
         btnOk.click(function(e){
             console.log("btn ok");
-            alertbox.append(okAlert);
-        });
+            let getName = $(this).attr("data-name");
 
-        btnError.click(function(e){
-            console.log("btn error");
-            alertbox.append(errorAlert);
-        });
+            let okAlert = 
+            `<div class = "alert alert-success alert-dismissible">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Success!</strong> Hi ${getName}, This alert box could indicate a successful or positive action.
+             </div>`;
 
+             alertBox.append(okAlert);
+        });
+        
+        btnDan.click(function(e){
+            console.log("btn danger");
+            let getName = $(this).attr("data-name");
+
+            let danAlert = 
+            `<div class = "alert alert-danger alert-dismissible">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Danger!</strong> Hi ${getName},This alert box could indicate a dangerous or potentially negative action.
+             </div>`;
+
+             alertBox.append(danAlert);
+        });
     });
 </script>
 </html>
