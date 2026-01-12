@@ -89,7 +89,7 @@ class DB{
 
         return $this->pdo->query($sql)->fetchColumn();
     }
-
+    //sum(欄位,條件)
     function sum($col,...$arg){
         $sql="SELECT sum(`$col`) FROM $this->table ";        
             if(isset($arg[0])){
@@ -136,15 +136,24 @@ function q($sql){
 
 $Total=new DB('total');
 $Mem=new DB('member');
+$Post=new DB('post');
+$Que=new DB('que');
 
-if(!isset($_SESSION['total'])){
+//session沒有total:設today為date欄位(今天日期)
+if(!isset($_SESSION['total']))
+{
     $today=$Total->find(['date'=>date("Y-m-d")]);
-    if(empty($today)){
+    //如果date沒有今天日期，新增date:今天，total:1
+    if(empty($today))
+    {
         $Total->save(['date'=>date("Y-m-d"),'total'=>1]);
-    }else{
+    }
+    //date有今天日期，該列total +1
+    else
+    {
         $today['total']=$today['total']+1;
         $Total->save($today);
-
     }
+    //session total設1，下次訪問不累加
     $_SESSION['total']=1;
 }

@@ -29,11 +29,14 @@
 <script>
     function login(){
         let user={acc:$("#acc").val(),pw:$("#pw").val()}
+        //確認資料庫有帳號
         $.get("./api/chk_acc.php",user,(chkacc)=>{
+            //回傳1
             if(parseInt(chkacc)){
                 $.get("./api/chk_pw.php",user,(chkpw)=>{
                     console.log(chkpw)
                     if(parseInt(chkpw)){
+                        //帳號是admin會進後台
                         if(user.acc=='admin'){
                             location.href='back.php';
                         }else{
@@ -43,6 +46,7 @@
                         alert("密碼錯誤")
                     }
                 })
+            //回傳0
             }else{
                 alert("查無帳號")
             }

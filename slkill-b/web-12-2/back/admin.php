@@ -1,5 +1,35 @@
 <fieldset>
-    <legend>會員註冊</legend>
+    <legend>帳號管理</legend>
+<form action="./api/admin.php" method="post">    
+<table class='ct' style='margin:auto;width:70%'>
+    <tr>
+        <td class='clo'>帳號</td>
+        <td class='clo'>密碼</td>
+        <td class='clo'>刪除</td>
+    </tr>
+    <?php 
+    $members=$Mem->all();
+    foreach($members as $member):
+        if($member['acc']!='admin'):
+    ?>
+    <tr>
+        <td><?=$member['acc'];?></td>
+        <td><?=str_repeat("*",mb_strlen($member['pw']));?></td>
+        <td>
+            <input type="checkbox" name="del[]" value="<?=$member['id'];?>">
+        </td>
+    </tr>
+    <?php
+        endif;
+    endforeach;
+    ?>
+</table>
+<div class='ct'>
+    <input type="submit" value="確定刪除">
+    <input type="reset" value="清空選取">
+</div>
+</form>
+<h2>新增會員</h2>
     <div style='color:red'>*請設定您要註冊的帳號及密碼(最長12個字元)</div>
     <form action="./api/reg.php" method="post">
         <table>
@@ -29,19 +59,18 @@
             </tr>
             <tr>
                 <td>
-                    <!-- 按下執行js方法reg()，會先執行方法再送出post -->
-                    <input type="button" value="註冊" onclick='reg()'>
+                    <input type="button" value="新增" onclick='reg()'>
                     <input type="reset" value="清除">
                 </td>
                 <td></td>
             </tr>
         </table>
     </form>
+
 </fieldset>
 
 <script>
 function reg(){
-    //設定物件
     let user={
         'acc':$("#acc").val(),
         'pw':$("#pw").val(),
@@ -51,15 +80,12 @@ function reg(){
 
     if(user.acc !='' && user.pw !='' && user.pw2 !='' && user.email !=''){
         if(user.pw == user.pw2){
-            //(get要傳到的檔案, 傳出的get陣列的內容(物件或字串，會被轉成Query String), (chk_acc.php echo的值)=>)
             $.get('./api/chk_acc.php',{'acc':user.acc},(chk)=>{
-                console.log(chk)
-                //!parseInt(0)是true
+                //console.log(chk)
                 if(!parseInt(chk)){
                     $.post("./api/reg.php",user,(res)=>{
-                        console.log(res)
-                        alert("註冊成功，歡迎加入")
                         $("form").trigger('reset');
+                        location.reload();
                     })
                 }else{
                     alert("帳號重覆")
