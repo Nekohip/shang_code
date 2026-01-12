@@ -21,8 +21,38 @@
     <div class="container mt-3">
         <h3>Modal Example</h3>
         <p>Click on the button to open the modal.</p>
-        <!-- data-bs-toggle="modal" > 按下按鈕展開的內容形式 -->
+        <!-- data-bs-toggle="modal": 按下按鈕展開的內容形式 -->
         <!-- data-bs-target="#id" -->
-        <button type="button" class="btn btn-primary" data-bs-toggl="modal" data-bs-target="#myModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+                data-bs-target="#myModal">
+            Open
+        </button>
+    </div>
+
+    <!-- Modal 直接寫不會顯示，按下按鈕才會 -->
+    <div class="modal" id="myModal">
+        <!-- 區塊置中、按一下會消失 -->
+        <div class="modal-dialog">
+            <!-- modal區塊 -->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h3 class="modal-title">123</h3>
+                    <!-- X按鈕 -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    456
+                </div>
+
+                <div class="modal-footer">
+                    <!-- btn:無框文字按鈕 btn-danger:有框，有btn才變色 -->
+                    <button type="button" class="btn-success" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
 </body>
 </html>
