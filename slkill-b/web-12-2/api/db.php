@@ -1,41 +1,54 @@
 <?php
 session_start();
 
-class DB{
+class DB
+{
     protected $dsn="mysql:host=localhost;charset=utf8;dbname=db12";
     protected $pdo;
     protected $table;
 
-    function __construct($table){
+    function __construct($table)
+    {
         $this->table=$table;
         $this->pdo=new PDO($this->dsn,'root','');
     }
 
-    function all(...$arg){
+    function all(...$arg)
+    {
         $sql="SELECT * FROM $this->table ";        
-            if(isset($arg[0])){
-                if(is_array($arg[0])){
+            if(isset($arg[0]))
+            {
+                if(is_array($arg[0]))
+                {
                     $where=$this->array2sql($arg[0]);
                     $sql .= " WHERE ".join(" AND ",$where);
-                }else{
+                }
+                else
+                {
                     $sql .=$arg[0];
                 }
             }
 
-            if(isset($arg[1])){
+            if(isset($arg[1]))
+            {
                 $sql .= $arg[1];
             }
 
             //echo $sql;
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
-    function find($id){
+
+    function find($id)
+    {
          $sql="SELECT * FROM $this->table ";        
             
-        if(is_array($id)){
+        if(is_array($id))
+        {
             $where=$this->array2sql($id);
             $sql .= " WHERE ".join(" AND ",$where);
-        }else{
+        }
+        else
+        {
             $sql .= " WHERE `id`='{$id}'";
         }
             
@@ -43,12 +56,17 @@ class DB{
 
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
-    function save($array){
-        if(isset($array['id'])){
+
+    function save($array)
+    {
+        if(isset($array['id']))
+        {
             //update
             $set=$this->array2sql($array);
             $sql="UPDATE $this->table SET ".join(",",$set). " WHERE `id`='{$array['id']}'";
-        }else{
+        }
+        else
+        {
             //insert
             $cols=array_keys($array);
             $sql="INSERT INTO $this->table (`".join("`,`",$cols)."`) VALUES('".join("','",$array)."')";
@@ -58,30 +76,42 @@ class DB{
         return $this->pdo->exec($sql);
 
     }
-    function del($id){
+
+    function del($id)
+    {
          $sql="DELETE FROM $this->table ";        
             
-        if(is_array($id)){
+        if(is_array($id))
+        {
             $where=$this->array2sql($id);
             $sql .= " WHERE ".join(" AND ",$where);
-        }else{
+        }
+        else
+        {
             $sql .= " WHERE `id`='{$id}'";
         }
             
         return $this->pdo->exec($sql);
     }
-    function count(...$arg){
+
+    function count(...$arg)
+    {
         $sql="SELECT count(*) FROM $this->table ";        
-            if(isset($arg[0])){
-                if(is_array($arg[0])){
+            if(isset($arg[0]))
+            {
+                if(is_array($arg[0]))
+                {
                     $where=$this->array2sql($arg[0]);
                     $sql .= " WHERE ".join(" AND ",$where);
-                }else{
+                }
+                else
+                {
                     $sql .=$arg[0];
                 }
             }
 
-            if(isset($arg[1])){
+            if(isset($arg[1]))
+            {
                 $sql .= $arg[1];
             }
 
@@ -89,19 +119,26 @@ class DB{
 
         return $this->pdo->query($sql)->fetchColumn();
     }
+
     //sum(欄位,條件)
-    function sum($col,...$arg){
+    function sum($col,...$arg)
+    {
         $sql="SELECT sum(`$col`) FROM $this->table ";        
-            if(isset($arg[0])){
-                if(is_array($arg[0])){
+            if(isset($arg[0]))
+            {
+                if(is_array($arg[0]))
+                {
                     $where=$this->array2sql($arg[0]);
                     $sql .= " WHERE ".join(" AND ",$where);
-                }else{
+                }
+                else
+                {
                     $sql .=$arg[0];
                 }
             }
 
-            if(isset($arg[1])){
+            if(isset($arg[1]))
+            {
                 $sql .= $arg[1];
             }
 
@@ -109,26 +146,31 @@ class DB{
         return $this->pdo->query($sql)->fetchColumn();
     }
 
-    private function array2sql($array){
+    private function array2sql($array)
+    {
         $tmp=[];
-        foreach($array as $key => $value){
+        foreach($array as $key => $value)
+        {
             $tmp[]="`$key`='$value'";
         }
         return $tmp;
     }
 }
 
-function dd($array){
+function dd($array)
+{
     echo "<pre>";
     print_r($array);
     echo "</pre>";
 }
 
-function to($url){
+function to($url)
+{
     header("location:".$url);
 }
 
-function q($sql){
+function q($sql)
+{
     $dsn="mysql:host=localhost;charset=utf8;dbname=db12";
     $pdo=new PDO($dsn,'root','');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -138,6 +180,7 @@ $Total=new DB('total');
 $Mem=new DB('member');
 $Post=new DB('post');
 $Que=new DB('que');
+$Log=new DB('log');
 
 //session沒有total:設today為date欄位(今天日期)
 if(!isset($_SESSION['total']))
