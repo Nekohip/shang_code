@@ -17,6 +17,7 @@
     foreach($posts as $idx => $post):
 ?>
 <tr>
+    <!-- posts的key(0,1,2)+start+1=該項目編號  -->
     <td><?=$idx+1+$start;?></td>
     <td><?=$post['title'];?></td>
     <td>
