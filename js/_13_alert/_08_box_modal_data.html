@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <button id="myBtn" type="button" class="btn btn-info">box modal</button>
+                <button id="myBtn" type="button" data-bs-target="#myModal">box modal</button>
             </div>
         </div>
     </div>
@@ -65,7 +65,10 @@
         myBtn.click(function()
         {
             //myBtn.attr()回傳"#myModal"
-            myModal.toggle();
+            let getTarget = myBtn.attr("data-bs-target");
+            console.log(getTarget);
+            //.toggle(): hide()和show()之間切換
+            $(getTarget).toggle();
         });
     });
     
