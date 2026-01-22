@@ -108,7 +108,6 @@ class DB{
         
         return $this->pdo->query($sql)->fetchColumn();
     }
-
     function max($col,...$arg){
         $sql="SELECT max(`$col`) FROM $this->table ";        
             if(isset($arg[0])){
@@ -153,4 +152,6 @@ function q($sql){
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
+
 $Poster=new DB('posters');
+$Movie=new DB("movies");

@@ -10,4 +10,5 @@ if(!empty($_FILES['img']['tmp_name'])){
     $Poster->save($_POST);
 }
 
+
 to("../admin.php?do=poster");
