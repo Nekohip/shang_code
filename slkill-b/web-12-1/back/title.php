@@ -37,7 +37,7 @@
                         </td>
                         <td>
                             <input type="button" value="更新圖片"
-                                onclick="op('#cover','#cvr','./model/update.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')">
+                                onclick="op('#cover','#cvr','./modal/update.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')">
                         </td>
                     </tr>
                 <?php
@@ -50,13 +50,13 @@
                 <tr>
                     <td width="200px">
                         <input type="button"
-                            onclick="op('#cover','#cvr','./model/<?= $do; ?>.php?table=<?= $do; ?>')"
+                            onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')"
                             value="新增網站標題圖片">
                     </td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                     </td>
                 </tr>
             </tbody>
-            </tab
-                </form>
+        </table>
+    </form>
 </div>
