@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"
+        integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .item {
+            margin-top: 20px;
+        }
+
+        .count {
+            width:70px;
+        }
+        
+        .cardText {
+            margin-bottom: 20px;
+        }
+
+        .btnGroup {
+            margin-left: 10px;
+        }
+        
+        .sum {
+            
+            margin-top: 30px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>購物車</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="card item" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/friedRice1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">豬肉炒飯</h5>
+                        <p class="card-text">$85</p>
+                        <div class="card-text d-flex flex-row align-items-center cardText">
+                            數量:<input type="number" class="form-control count" value="0" data-price="85">
+                            <div class="btnGroup">
+                                <button class="btn btn-secondary plus">+</button>
+                                <button class="btn btn-secondary minus">-</button>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row cardText">
+                            小計:<div class="res"></div>
+                        </div>
+                        <a href="#" class="btn btn-danger">刪除</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card item" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/friedRice2.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">茄汁炒飯</h5>
+                        <p class="card-text">$80</p>
+                        <div class="card-text d-flex flex-row align-items-center cardText">
+                            數量:<input type="number" class="form-control count"  value="0" data-price="80">
+                            <div class="btnGroup">
+                                <button class="btn btn-secondary plus">+</button>
+                                <button class="btn btn-secondary minus">-</button>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row cardText">
+                            小計:<div class="res"></div>
+                        </div>
+                        <a href="#" class="btn btn-danger">刪除</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card item" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/friedRice3.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">牛肉炒飯</h5>
+                        <p class="card-text">$90</p>
+                        <div class="card-text d-flex flex-row align-items-center cardText">
+                            數量:<input type="number" class="form-control count" value="0" data-price="90">
+                            <div class="btnGroup">
+                                <button class="btn btn-secondary plus">+</button>
+                                <button class="btn btn-secondary minus">-</button>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row cardText">
+                            小計:<div class="res"></div>
+                        </div>
+                        <a href="#" class="btn btn-danger">刪除</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card item" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/friedRice4.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">雞腿炒飯</h5>
+                        <p class="card-text">$115</p>
+                        <div class="card-text d-flex flex-row align-items-center cardText" >
+                            數量:<input type="number" class="form-control count" value="0" data-price="115">
+                            <div class="btnGroup">
+                                <button class="btn btn-secondary plus">+</button>
+                                <button class="btn btn-secondary minus">-</button>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row cardText">
+                            小計:<div class="res"></div>
+                        </div>
+                        <a href="#" class="btn btn-danger">刪除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row sum d-flex flex-row justify-content-center">
+            <div class="col-1">
+                總計:
+            </div>
+            <div class="col-1 sumNum">
+                
+            </div>
+            <div class="col-1">元</div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function()
+    {
+        function calSum()
+        {
+            console.log("calSum ok");
+            //const bind class會是jQuery Object，類似陣列，能用$.each()取值
+            const allRes = $(".res");
+            let total = 0;
+            $.each(allRes, function(key, value)
+            {
+                let tmpRes = Number($(value).text());
+                total += tmpRes;
+            });
+            return total;
+        }
+
+        const count = $(".count");
+        const res = $(".res");
+        const sumNum = $(".sumNum");
+        console.log("count", count);
+        console.log("res", res);
+        console.log("sumNum", sumNum);
+
+        //.change():input的value改變時觸發
+        count.change(function(e)
+        {
+            let tmpValue = $(this).val();
+            let tmpPrice = $(this).attr("data-price");
+            let tmpTotal = tmpValue * tmpPrice;
+            console.log("tmpValue", tmpValue);
+            console.log("tmpPrice", tmpPrice);
+            console.log("tmpTotal", tmpTotal);
+
+            //.parent():往上層標籤找
+            let tmpTr = $(this).parent().parent();
+            //.find():往下層找
+            let tmpRes = tmpTr.find(".cardText").find(".res");
+            tmpRes.text(tmpTotal);
+
+            let sum = calSum();
+            sumNum.text(sum);
+        });
+    });
+</script>
+</html>

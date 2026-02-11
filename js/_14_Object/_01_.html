@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    
+</body>
+
+<script>
+    $(document).ready(function()
+    {
+        let myArr = [1, 2, 3, 4, 5];
+        console.log("myArr", myArr);
+
+        //物件
+        let myObj = {
+            id: 1,
+            name: "John",
+            mobile: "0911"
+        };
+        console.log("myObj", myObj);
+
+        //有多個物件的陣列
+        let students = [
+            {
+                id: 1,
+                name: "amy",
+                mobile: "0911"
+            },
+            {
+                id: 2,
+                name: "eric",
+                mobile: "0922"
+            },
+            {
+                id: 1,
+                name: "vincent",
+                mobile: "0933"
+            }
+        ];
+        console.log("students", students);
+        
+        //有多個物件的物件
+        let data = {
+            students: students,
+            myObj: myObj,
+            myArr: myArr
+        };
+        console.log("data", data);
+    });
+</script>
+</html>
