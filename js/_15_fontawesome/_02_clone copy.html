@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+    integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"
+        integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container mt-3">
+        <h2>Create Table</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>MOBILE</th>
+                    <th>OPT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" name="name[]" class="form-control" value="amy">
+                    </td>
+                    <td>
+                        <input type="text" name="mobile[]" class="form-control" value="0911">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary clone-btn">
+                            <i class="fa-solid fa-clone"></i>
+                        </button>
+                        <!-- remove tr -->
+                        <button type="button" class="btn btn-info remove-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function()
+    {
+        const cloneBtn = $(".clone-btn");
+        const removeBtn = $(".remove-btn");
+
+        cloneBtn.click(function()
+        {   
+            //.closest("tr"):選位置，選離按鈕最近的tr
+            let tmpTr = $(this).closest("tr");
+            //.clone(true):複製該位置所有子元素
+            let cloneTr = tmpTr.clone(true);
+            //.after(cloneTr):在該位置插入元素
+            tmpTr.after(cloneTr);
+        });
+
+        removeBtn.click(function (e) 
+        {
+            //$('table tbody tr').length:只計算table下的tbody下的tr數量
+            if ($('table tbody tr').length > 1) 
+            {
+                let tmpTr = $(this).closest('tr');
+                tmpTr.remove();
+            }
+        });
+    });
+</script>
+</html>

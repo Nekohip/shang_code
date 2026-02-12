@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            /* background-color: lightblue; */
+            border: 5px solid black;
+            border-radius: 20px;
+            font-size: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: auto;
+            padding: 20px;
+            margin-top: 20px    ;
+            margin-bottom: 20px    ;
+        }
+
+        .box>h2 {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container text-center mt-3">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="box text-primary">
+                    <!-- 腳踏車 -->
+                    <i class="fa-solid fa-bicycle"></i>
+                    <br>
+                    <h2>腳踏車</h2>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="box text-success">
+                    <!-- 望遠鏡 -->
+                    <i class="fa-solid fa-binoculars"></i>
+                    <br>
+                    <h2>望遠鏡</h2>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 ">
+                <div class="box text-danger ">
+                    <!-- 蘋果 -->
+                    <i class="fa-solid fa-apple-whole"></i>
+                    <br>
+                    <h2>蘋果</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+        integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const box = $('.box');
+            const h2 = $('.box>h2');
+            const iBtn = $('.box>i');
+
+            // 2.action
+            h2.hide();
+
+            // find():會往下找子元素
+            // box.click(function (e) {
+            //     e.preventDefault();
+            //     console.log('box', box);
+
+            //     $(this).find('h2').toggle();
+
+            // });
+
+            // siblings():同層鄰居元素
+            iBtn.click(function (e) {
+                e.preventDefault();
+                console.log('box', box);
+
+                $(this).siblings('h2').toggle();
+
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
