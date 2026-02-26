@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"
+        integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">地區</th>
+                <th scope="col">時段1&nbsp;&nbsp;&nbsp;<span id="time1"></span></th>
+                <th scope="col">時段2&nbsp;&nbsp;&nbsp;<span id="time2"></span></th>
+                <th scope="col">時段3&nbsp;&nbsp;&nbsp;<span id="time3"></span></th>
+            </tr>
+        </thead>
+
+        <tbody id="myTbody">
+
+        </tbody>
+    </table>
+</body>
+<script src="./pwd.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("pwd", pwd);
+        let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
+
+        const myTbody = $("#myTbody");
+        const time1 = $("#time1");
+        const time2 = $("#time2");
+        const time3 = $("#time3");
+
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "json",
+            success: function (res) 
+            {
+                console.log("res", res);
+                let data = res.records.location;
+                let time1Start = data[0].weatherElement[0].time[0].startTime;
+                let time1End = data[0].weatherElement[0].time[0].endTime;
+                let time2Start = data[0].weatherElement[0].time[1].startTime;
+                let time2End = data[0].weatherElement[0].time[1].endTime;
+                let time3Start = data[0].weatherElement[0].time[2].startTime;
+                let time3End = data[0].weatherElement[0].time[2].endTime;
+
+                let time1StartHour = new Date(time1Start).getHours();
+                let time1EndHour = new Date(time1End).getHours();
+                let time2StartHour = new Date(time2Start).getHours();
+                let time2EndHour = new Date(time2End).getHours();
+                let time3StartHour = new Date(time3Start).getHours();
+                let time3EndHour = new Date(time3End).getHours();
+
+                let time1String = `${time1StartHour} ~ ${time1EndHour}`;
+                let time2String = `${time2StartHour} ~ ${time2EndHour}`;
+                let time3String = `${time3StartHour} ~ ${time3EndHour}`;
+
+                time1.text(time1String);
+                time2.text(time2String);
+                time3.text(time3String);
+
+                let tmpText = ``;
+                $.each(data, function (key, value) {
+                    console.log("key", key);
+                    console.log("value", value.locationName);
+
+                    let time1Min = value.weatherElement[2].time[0].parameter.parameterName;
+                    let time2Min = value.weatherElement[2].time[1].parameter.parameterName;
+                    let time3Min = value.weatherElement[2].time[2].parameter.parameterName;
+                    let time1Max = value.weatherElement[4].time[0].parameter.parameterName;
+                    let time2Max = value.weatherElement[4].time[1].parameter.parameterName;
+                    let time3Max = value.weatherElement[4].time[2].parameter.parameterName;
+
+                    let time1Wx = value.weatherElement[0].time[0].parameter.parameterName;
+                    let time2Wx = value.weatherElement[0].time[1].parameter.parameterName;
+                    let time3Wx = value.weatherElement[0].time[2].parameter.parameterName;
+                    let time1WxValue = value.weatherElement[0].time[0].parameter.parameterValue;
+                    let time2WxValue = value.weatherElement[0].time[1].parameter.parameterValue;
+                    let time3WxValue = value.weatherElement[0].time[2].parameter.parameterValue;
+
+                    let time1Folder = 'day';
+                    let time2Folder = 'day';
+                    let time3Folder = 'day';
+
+                    if (time1StartHour > 18) 
+                    {
+                        time1Folder = 'night';
+                    }
+                    if (time2StartHour >= 18) 
+                    {
+                        time2Folder = 'night';
+                    }
+                    if (time3StartHour > 18) 
+                    {
+                        time3Folder = 'night';
+                    }
+
+                    tmpText += `
+                    <tr>
+                        <td>${key + 1}</td>
+                        <td>${value.locationName}</td>
+                        <td>${time1Min}-${time1Max} °C ${time1Wx} <img src="./data/${time1Folder}/${time1WxValue}.svg" alt=""></td>
+                        <td>${time2Min}-${time2Max} °C ${time2Wx} <img src="./data/${time2Folder}/${time2WxValue}.svg" alt=""></td>
+                        <td>${time3Min}-${time3Max} °C ${time3Wx} <img src="./data/${time3Folder}/${time3WxValue}.svg" alt=""></td>
+                    </tr>`;
+                });
+                myTbody.append(tmpText);
+            }
+        });
+    });
+</script>
+
+</html>
