@@ -70,10 +70,13 @@ class DB{
             
         return $this->pdo->exec($sql);
     }
+    //$_GET[acc => xxxx, pw => ******]
     function count(...$arg){
+        //select count(*)回傳符合條件資料數量
         $sql="SELECT count(*) FROM $this->table ";        
             if(isset($arg[0])){
                 if(is_array($arg[0])){
+                    //`acc`='xxxx' AND `pw`='******'
                     $where=$this->array2sql($arg[0]);
                     $sql .= " WHERE ".join(" AND ",$where);
                 }else{
