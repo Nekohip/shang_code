@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" 
+            integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+          integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+</head>
+<body>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+
+</body>
+</html>
+
+<script>
+    const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+    const yValues = [55, 49, 44, 24, 16 ];
+    const barColors = ["red", "green","blue","orange","brown"];
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {display: false},
+          title: {
+            display: true,
+            text: "World Wine Production 2018",
+            font: {size: 16}
+          }
+        }
+      }
+    });
+</script>
