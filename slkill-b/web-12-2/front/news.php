@@ -9,14 +9,14 @@
         <td></td>
     </tr>
     <?php
-        $total=$Post->count(['sh'=>1]);
-        $div=5;
-        $pages=ceil($total/$div);
-        $now=$_GET['p']??1;
-        $start=($now-1)*$div;
-        $posts=$Post->all(['sh'=>1]," limit $start,$div");
+    $total=$Post->count(['sh'=>1]);
+    $div=5;
+    $pages=ceil($total/$div);
+    $now=$_GET['p']??1;
+    $start=($now-1)*$div;
 
-        foreach($posts as $post):
+    $posts=$Post->all(['sh'=>1]," limit $start,$div");
+    foreach($posts as $post):
     ?>
     <tr>
         <td class='title'><?=$post['title'];?></td>
@@ -29,26 +29,23 @@
             </span>
         </td>
         <!-- 按讚功能 -->
-        <!-- <td>
+        <td>
             <?php
-                if(isset($_SESSION['login']))
-                {
+                if(isset($_SESSION['login'])){
                     $post_id=$post['id'];
                     $member_id=$Mem->find(['acc'=>$_SESSION['login']])['id'];
-                    if($Log->count(['post_id'=>$post_id,'member_id'=>$member_id])>0)
-                    {
+                    if($Log->count(['post_id'=>$post_id,'member_id'=>$member_id])>0){
                         echo "<a href='#' class='great' data-id='{$post['id']}'>收回讚</a>";
-                    }
-                    else
-                    {
+                    }else{
                         echo "<a href='#' class='great' data-id='{$post['id']}'>讚</a>";
                     }
                 }
+
             ?>
-        </td> -->
+        </td>
     </tr>
     <?php
-        endforeach;
+    endforeach;
     ?>
 </table>
 <div>
@@ -77,19 +74,18 @@
 $(".title").on("click",function(){
     $(this).next().children('.short,.full').toggle();
 })
-// 按讚功能
-// $(".great").on("click",function(){
-//     let id=$(this).data('id')
-//     let str=$(this).text();
-//     $.post("./api/good.php",{id},()=>{
-//         switch(str){
-//             case "讚":
-//                 $(this).text("收回讚")
-//             break;
-//             case "收回讚":
-//                 $(this).text("讚")
-//             break;
-//         }
-//     })
-// })
+$(".great").on("click",function(){
+    let id=$(this).data('id')
+    let str=$(this).text();
+    $.post("./api/good.php",{id},()=>{
+        switch(str){
+            case "讚":
+                $(this).text("收回讚")
+            break;
+            case "收回讚":
+                $(this).text("讚")
+            break;
+        }
+    })
+})
 </script>

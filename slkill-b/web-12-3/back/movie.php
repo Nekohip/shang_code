@@ -3,42 +3,74 @@
     display:flex;
     align-items:center;
     margin-bottom:3px;
-    background:#fff;
+    background:#eee;
     padding:2px;
     width:95%;
-    margin:auto;
+    margin:3px auto;
 }
 </style>
 <button onclick="location.href='?do=add_movie'">新增電影</button>
 <hr>
+<div style='overflow:auto;height:440px;'>
+<?php 
+$movies=$Movie->all(" order by `rank`");
 
+foreach($movies as $idx => $movie):
+    $prev_id=($idx>0)?$movies[$idx-1]['id']:$movie['id'];
+    $next_id=(count($movies)-1>$idx)?$movies[$idx+1]['id']:$movie['id'];
+?>
 
 <div class='movie-item'>
 <div style="width:80px;">
-    <img src="" alt="">
+    <img src="upload/<?=$movie['poster'];?>" style="width:70;height:90px;">
 </div>
 <div style="width:150px;">
-    分級: <img src="" alt=""></div>
+    分級: <img src="icon/03C0<?=$movie['level'];?>.png" alt=""></div>
 <div style="width:400px;flex:1">
     <div style="display:flex;">
         <div style="width:33.3%">
-            片名:
+            片名:<?=$movie['name'];?>
         </div>
         <div style="width:33.3%">
-            片長:
+            片長:<?php
+            echo floor($movie['length']/60);
+            echo ":";
+            echo $movie['length']%60;
+            ;?>
         </div>
         <div style="width:33.3%">
-            上映時間:
+            上映時間:<?=$movie['ondate'];?>
         </div>
     </div>
     <div style="text-align:right;">
-        <button>顯示</button>
-        <button>往上</button>
-        <button>往下</button>
-        <button onclick="location.href='?do=edit_movie&id=1'">編輯電影</button>
-        <button>刪除電影</button>
+        <button onclick="setShow(<?=$movie['id'];?>)"><?=($movie['sh']==1)?'顯示':'隱藏';?></button>
+        <button class='sw' data-sw="<?=$prev_id;?>-<?=$movie['id'];?>">往上</button>
+        <button class='sw' data-sw="<?=$next_id;?>-<?=$movie['id'];?>">往下</button>
+        <button onclick="location.href='?do=edit_movie&id=<?=$movie['id'];?>'">編輯電影</button>
+        <button onclick="location.href='api/del_movie.php?id=<?=$movie['id'];?>'">刪除電影</button>
     </div>
-    <div></div>
+    <div>
+        劇情簡介: <?=$movie['intro'];?>
+    </div>
 </div>
+</div>
+<?php
+endforeach;
+?>
 </div>
 
+<script>
+function setShow(id){
+    $.post("api/set_show.php",{id},function(){
+        location.reload();
+    })
+}
+
+$(".sw").on("click",function(){
+    let ids=$(this).data("sw").split("-");
+    $.post("./api/sw.php",{ids,'table':'Movie'},(res)=>{
+        
+        location.reload();
+    })
+})
+</script>

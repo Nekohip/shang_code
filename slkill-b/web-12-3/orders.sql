@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2026-01-22 02:39:51
+-- 產生時間： 2026-01-26 07:00:31
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -24,22 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `movies`
+-- 資料表結構 `orders`
 --
 
-CREATE TABLE `movies` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `name` text NOT NULL,
-  `level` int(1) UNSIGNED NOT NULL,
-  `length` int(3) UNSIGNED NOT NULL,
-  `ondate` date NOT NULL,
-  `publisher` text NOT NULL,
-  `director` text NOT NULL,
-  `trailer` text NOT NULL,
-  `poster` text NOT NULL,
-  `rank` int(10) UNSIGNED NOT NULL,
-  `sh` int(1) UNSIGNED NOT NULL,
-  `intro` text NOT NULL
+CREATE TABLE `orders` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `no` text NOT NULL,
+  `movie` text NOT NULL,
+  `date` date NOT NULL,
+  `session` text NOT NULL,
+  `qt` int(10) UNSIGNED NOT NULL,
+  `seats` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -47,9 +42,9 @@ CREATE TABLE `movies` (
 --
 
 --
--- 資料表索引 `movies`
+-- 資料表索引 `orders`
 --
-ALTER TABLE `movies`
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -57,10 +52,10 @@ ALTER TABLE `movies`
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `movies`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `orders`
 --
-ALTER TABLE `movies`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `orders`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,1 +1,130 @@
-訂單管理
+<style>
+.order-cols {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-cols > div {
+    width: calc((100% - 0.6%) / 7);
+    text-align: center;
+    background: #ddd;
+    padding: 3px 0;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item > div {
+    width: calc((100% - 0.6%) / 7);
+    padding: 3px 0;
+    text-align: center;
+}
+
+.orders {
+    height: 370px;
+    overflow: auto;
+    /* background: blue; */
+}    
+</style>
+
+<h3 class="ct">訂單清單</h3>
+
+<div class="quick-del" style='display:flex'>
+<div>快速刪除：</div>
+<div>
+    <input type="radio" name="type" id="typeDate" value='date' checked>依日期
+    <input type="text" name="date" id="date">
+</div>
+<div>
+    <input type="radio" name="type" id="typeMovie" value='movie'>依電影
+   <select name="movie" id="movie">
+    <?php 
+    $movies=$Order->all(" group by `movie`");
+    foreach($movies as $movie){
+    echo "<option value='{$movie['movie']}'>";
+    echo $movie['movie'];
+    echo "</option>";
+    }
+    ?>
+   </select>
+</div>
+<button style='margin:0 10px' onclick="qdel()">刪除</button>
+
+</div>
+<div class="order-list" style='margin:5px;'>
+
+<div class="order-cols">
+    <div>訂單編號</div>
+    <div>電影名稱</div>
+    <div>日期</div>
+    <div>場次時間</div>
+    <div>訂購數量</div>
+    <div>訂購位置</div>
+    <div>操作</div>
+</div>
+<div class="orders">
+<?php
+$orders=$Order->all(" order by no desc");
+foreach($orders as $order):
+?>
+<div class="order-item">
+    <div><?=$order['no'];?></div>
+    <div><?=$order['movie'];?></div>
+    <div><?=$order['date'];?></div>
+    <div><?=$order['session'];?></div>
+    <div><?=$order['qt'];?></div>
+    <div><?php
+    $seats=unserialize($order['seats']);
+    foreach($seats as $seat){
+        echo "<div>";
+        echo floor($seat/5)+1;
+        echo "排";
+        echo $seat%5 +1;
+        echo "號";
+        echo "</div>";
+
+    }
+    
+    ;?></div>
+    <div>
+        <button onclick='del(<?=$order['id'];?>)'>刪除</button>
+    </div>
+</div>
+<?php 
+endforeach;
+?>
+</div>
+
+
+</div>
+<script>
+function del(id){
+    if(confirm('你確定要刪除這筆資料?')){
+        $.post("api/del_movie.php",{id},()=>{
+            location.reload();
+        })
+    }
+}
+
+function qdel(){
+let type=$("input[name='type']:checked").val();
+let value;
+    switch(type){
+        case 'date':
+            value=$("#date").val();
+        break;
+        case 'movie':
+            value=$("#movie").val();
+        break;
+    }
+
+    if(confirm(`你確定要刪除這些訂單嗎?`))
+    $.post("api/q_del.php",{type,value},()=>{
+        location.reload();
+    })
+
+}
+</script>

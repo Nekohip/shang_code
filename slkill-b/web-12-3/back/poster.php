@@ -11,8 +11,6 @@
     $posters=$Poster->all(" ORDER BY `rank` ASC");
     
     foreach($posters as $idx => $poster):
-        //排序功能變數
-        //if idx>0 : poseter
         $prev_id=($idx>0)?$posters[$idx-1]['id']:$poster['id'];
         $next_id=(count($posters)-1>$idx)?$posters[$idx+1]['id']:$poster['id'];
     ?>
@@ -70,7 +68,7 @@
 <script>
 $(".sw").on("click",function(){
     let ids=$(this).data("sw").split("-");
-    $.post("./api/sw.php",{ids},(res)=>{
+    $.post("./api/sw.php",{ids,'table':'Poster'},(res)=>{
         
         location.reload();
     })

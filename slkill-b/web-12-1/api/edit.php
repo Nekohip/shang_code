@@ -5,6 +5,7 @@ include_once "db.php";
 $table=$_GET['table'];
 //將$table變數名第一個字變大寫，傳來什麼就能呼叫它的DB物件方法
 $DB=${ucfirst($table)};
+
 $ids=[];
 //將傳過來要修改的欄位做成陣列，用$table判斷做成哪種
 switch($table){
@@ -16,8 +17,7 @@ switch($table){
         $ids=array_keys($_POST['acc']);
     break;
     default:
-    //這行在修改動圖時會報錯
-    //取text的key做成陣列[0,1,2,3...]
+        //取text的key做成陣列[0,1,2,3...]
         $ids=array_keys($_POST['text']);
     
 }

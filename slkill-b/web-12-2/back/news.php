@@ -7,14 +7,16 @@
     <td>刪除</td>
 </tr>
 <?php 
-    $total=$Post->count();
-    $div=3;
-    $pages=ceil($total/$div);
-    $now=$_GET['p']??1;
-    //(現在頁數-1)x一頁顯示列數=現在頁數第一個項目id
-    $start=($now-1)*$div;
-    $posts=$Post->all(" limit $start,$div");
-    foreach($posts as $idx => $post):
+$total=$Post->count();
+$div=3;
+$pages=ceil($total/$div);
+$now=$_GET['p']??1;
+//(現在頁數-1)x一頁顯示列數=現在頁數第一個項目id
+$start=($now-1)*$div;
+
+$posts=$Post->all(" limit $start,$div");
+foreach($posts as $idx => $post):
+
 ?>
 <tr>
     <!-- posts的key(0,1,2)+start+1=該項目編號  -->
@@ -29,7 +31,7 @@
     </td>
 </tr>
 <?php 
-    endforeach;
+endforeach;
 
 ?>
 

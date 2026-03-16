@@ -1,5 +1,21 @@
 <?php
 session_start();
+date_default_timezone_set("Asia/Taipei");
+
+$levelStr=[
+    1=>"普遍級",
+    2=>"輔導級",
+    3=>"保護級",
+    4=>"限制級"
+];
+
+$duration=[
+    1=>"14:00 ~ 16:00",
+    2=>"16:00 ~ 18:00",
+    3=>"18:00 ~ 20:00",
+    4=>"20:00 ~ 22:00",
+    5=>"22:00 ~ 24:00"
+];
 
 class DB{
     protected $dsn="mysql:host=localhost;charset=utf8;dbname=db03";
@@ -26,7 +42,7 @@ class DB{
                 $sql .= $arg[1];
             }
 
-            //echo $sql;
+         //echo $sql;
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
     function find($id){
@@ -147,11 +163,12 @@ function to($url){
 }
 
 function q($sql){
-    $dsn="mysql:host=localhost;charset=utf8;dbname=db12";
+    $dsn="mysql:host=localhost;charset=utf8;dbname=db03";
     $pdo=new PDO($dsn,'root','');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
 $Poster=new DB('posters');
-$Movie=new DB("movies");
+$Movie=new DB('movies');
+$Order=new DB('orders');

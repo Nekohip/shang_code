@@ -7,12 +7,12 @@
         <td class='clo'>密碼</td>
         <td class='clo'>刪除</td>
     </tr>
-        <?php 
-            $members=$Mem->all();
-            foreach($members as $member):
-                //acc欄不是admin就顯示在table
-                if($member['acc']!='admin'):
-        ?>
+    <?php 
+    $members=$Mem->all();
+    foreach($members as $member):
+        //acc欄不是admin就顯示在table
+        if($member['acc']!='admin'):
+    ?>
     <tr>
         <td><?=$member['acc'];?></td>
         <!-- 顯示和密碼長度一樣數量的* -->
@@ -22,8 +22,8 @@
         </td>
     </tr>
     <?php
-            endif;
-        endforeach;
+        endif;
+    endforeach;
     ?>
 </table>
 <div class='ct'>
@@ -72,45 +72,33 @@
 </fieldset>
 
 <script>
-function reg()
-{
-    let user=
-    {
+function reg(){
+    let user={
         'acc':$("#acc").val(),
         'pw':$("#pw").val(),
         'pw2':$("#pw2").val(),
         'email':$("#email").val()
     }
 
-    if(user.acc !='' && user.pw !='' && user.pw2 !='' && user.email !='')
-    {
-        if(user.pw == user.pw2)
-        {
-            $.get('./api/chk_acc.php',{'acc':user.acc},(chk)=>
-            {
+    if(user.acc !='' && user.pw !='' && user.pw2 !='' && user.email !=''){
+        if(user.pw == user.pw2){
+            $.get('./api/chk_acc.php',{'acc':user.acc},(chk)=>{
                 //console.log(chk)
-                if(!parseInt(chk))
-                {
-                    $.post("./api/reg.php",user,(res)=>
-                    {
+                if(!parseInt(chk)){
+                    $.post("./api/reg.php",user,(res)=>{
                         $("form").trigger('reset');
                         location.reload();
                     })
-                }
-                else
-                {
+                }else{
                     alert("帳號重覆")
                 }
             })
-        }
-        else
-        {
+        }else{
             alert("密碼錯誤")
         }
-    }
-    else
-    {
+    }else{
         alert("不可空白")
     }
+
 }
 </script>

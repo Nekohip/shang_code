@@ -32,7 +32,8 @@
         //確認資料庫有帳號
         $.get("./api/chk_acc.php",user,(chkacc)=>{
             //回傳1
-            if(parseInt(chkacc)){
+            if(parseInt(chkacc))
+            {
                 $.get("./api/chk_pw.php",user,(chkpw)=>{
                     console.log(chkpw)
                     if(parseInt(chkpw)){
@@ -46,8 +47,10 @@
                         alert("密碼錯誤")
                     }
                 })
+            }
             //回傳0
-            }else{
+            else
+            {
                 alert("查無帳號")
             }
         })
